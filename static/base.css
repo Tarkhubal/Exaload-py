@@ -1,0 +1,566 @@
+:root {
+    --bg-gradient: linear-gradient(to bottom,
+            hsl(var(--hue), 95%, 99%),
+            hsl(var(--hue), 95%, 84%));
+}
+
+
+body {
+    /* background-image: linear-gradient(to bottom right, #2961aa, #26205e); */
+    background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* Pour les navigateurs WebKit */
+/* Barre de défilement */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Piste de la barre de défilement */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* Poignée de la barre de défilement */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(214, 214, 214, 0.897);
+    border-radius: 5px;
+}
+
+
+main .content {
+    padding-left: 80px;
+    padding-top: 80px;
+}
+
+
+#profil {
+    position: fixed;
+    height: 70px;
+    width: 60px;
+    z-index: 1000;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#profil img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+
+#profil-preview {
+    position: fixed;
+    top: 10px;
+    left: 70px;
+    width: calc(40% - 60px);
+    height: 60%;
+    /* Largeur de la section principale */
+    background-color: rgba(0, 0, 0, 0.26);
+    color: white;
+    padding: 20px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 200;
+    transition: visibility 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+#profil-preview.active {
+    transition: visibility 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+    /* display: flex; */
+    visibility: visible;
+    opacity: 1;
+}
+
+#profil-top-info {
+    padding: 20px;
+    display: flex;
+    border-radius: 10px;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.363);
+}
+
+#orbCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+
+
+
+#profil-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    position: relative;
+    background: linear-gradient(to right, red, purple);
+    padding: 5px;
+}
+
+#profil-picture img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+#profil-top-info h2 {
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+#profil-top-info p {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+#profil-top-info h3 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+
+#profil-bottom-info {
+    margin: 20px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    height: 50%;
+    justify-content: space-between;
+}
+
+#profil-bottom-info .stat-item {
+    width: 40%;
+    height: 45%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin: 10px;
+    text-align: center;
+}
+
+.stat-item * {
+    margin: 0;
+    padding: 0;
+}
+
+.stat-item .percent {
+    color: white;
+    font-size: 40pt;
+    margin-top: 20px;
+}
+
+.stat-item .percent sup {
+    color: grey;
+    font-size: 23pt;
+}
+
+.stat-item .percent span {
+    color: grey;
+    font-size: 18pt;
+}
+
+
+
+.topbar {
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+
+/* Réinitialisation des styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles généraux */
+body {
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+/* Barre de navigation futuriste */
+.top-bar-first {
+    list-style: none;
+    display: flex;
+    background-color: transparent;
+    padding-right: 20px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.top-bar-first {
+    height: 60px;
+}
+
+.top-bar-first li {
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #00b0e8;
+}
+
+
+/* Bannière promotionnelle */
+.banner {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    height: 70vh;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    /* opacity: 0.7; */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* .banner img:hover {
+    opacity: 1;
+} */
+
+.banner-content {
+    position: absolute;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.banner-content:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.banner-content h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.banner-content button {
+    background-color: #00b0e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.banner-content button:hover {
+    background-color: #0094c5;
+}
+
+/* Grille de films futuriste */
+
+.scroller-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+    grid-auto-columns: max-content;
+    grid-template-rows: 1fr;
+    gap: 20px;
+    padding: 40px 20px;
+    overflow-x: auto;
+    /* overflow-y: hidden; */
+    height: 500px;
+}
+
+.scroller-card {
+    grid-row: 1;
+    height: 100%;
+    grid-column: auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(500px - (40px *2) - (20px *2));
+    transition: background-color 0.3s ease-in-out;
+}
+
+.scroller-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.scroller-card h3 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.scroller-card p {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.scroller-card:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+#scroller-previewer {
+    position: fixed;
+    top: 0;
+    left: 60px;
+    /* Correspond à la marge gauche de la barre latérale */
+    width: calc(100% - 60px);
+    /* Largeur de la section principale */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 99;
+    transition: visibility 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+}
+
+#scroller-previewer.active {
+    transition: visibility 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+    /* display: flex; */
+    visibility: visible;
+    opacity: 1;
+}
+
+#scroller-info {
+    width: 50%;
+}
+
+
+
+
+
+
+/* Pied de page futuriste */
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    padding: 20px;
+}
+
+footer ul li {
+    margin-left: 20px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+footer ul li a:hover {
+    color: #00b0e8;
+}
+
+
+
+/* Barre latérale */
+.sidebar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    width: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 100;
+}
+
+.subsidebar {
+    width: 200px;
+    left: 60px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: subsidebar-animate-reverse 0.3s ease-in-out;
+    transform: translateX(-150%);
+    overflow: hidden;
+}
+
+.subsidebar.active {
+    animation: subsidebar-animate 0.3s ease-in-out;
+    transform: translateX(0%);
+}
+
+.sidebar ul,
+.subsidebar ul {
+    border-radius: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.subsidebar li {
+    height: calc(30px + 20px + 5px);
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.sidebar a,
+.subsidebar a {
+    display: block;
+    color: white;
+}
+
+.sidebar img {
+    width: 30px;
+    height: 30px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+    filter: invert(1);
+}
+
+.sidebar img:hover {
+    opacity: 1;
+}
+
+
+
+@keyframes subsidebar-animate {
+    0%   { transform: translateX(-150%); }
+    50%  { transform: translateX(15%);   }
+    100% { transform: translateX(0%);    }
+}
+
+@keyframes subsidebar-animate-reverse {
+    0%   { transform: translateX(0%);    }
+    50%  { transform: translateX(15%);   }
+    100% { transform: translateX(-150%); }
+}
+
+
+@keyframes sb-content-animate {
+    0%   { transform: translateX(0%);  }
+    50%  { transform: translateX(13%); }
+    100% { transform: translateX(11%); }
+}
+
+@keyframes sb-content-animate-reverse {
+    0%   { transform: translateX(11%); }
+    50%  { transform: translateX(13%); }
+    100% { transform: translateX(0%);  }
+}
+
+
+.content {
+    animation: sb-content-animate-reverse 0.3s ease-in-out;
+    transform: translateX(0);
+}
+
+.content.active {
+    overflow: hidden;
+    animation: sb-content-animate 0.3s ease-in-out;
+    transform: translateX(10%);
+}
+
+body {
+    overflow: hidden;
+}
+
+
+
+
+/* Barre de recherche */
+.dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    min-width: 200px;
+    z-index: -100;
+    top: 60px;
+    opacity: 0;
+    max-width: 500px;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    visibility: hidden;
+    transition: visibility 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+}
+
+.dropdown-content ul {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.with-sub div.active {
+    opacity: 1;
+    visibility: visible;
+    transition: visibility 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+    z-index: 100;
+}
+
+.dropdown-content ul li {
+    /* padding: 5px 0; */
+    margin: 5px 0;
+}

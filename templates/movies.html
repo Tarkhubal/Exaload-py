@@ -1,0 +1,282 @@
+{% extends "base2.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='movies.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <header class="topbar">
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Nouveautés</a></li>
+                <li><a href="#">Catégories</a></li>
+                <li><a href="#">Ma Liste</a></li>
+                <li><a href="#">Recherche</a></li>
+                <li><a href="#">Profil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="sidebar">
+        <ul>
+            <li><a href="#"><img src="https://th.bing.com/th/id/R.d974bb13c5249a86f3f15aac863f5c14?rik=2%2b1p5Yz0U%2fbtsw&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_279067.png&ehk=MpDnckv0OYLU7aN%2bDDXtjyfYexm0FhZT5AlqU5JlY2c%3d&risl=&pid=ImgRaw&r=0" alt="Tendance"></a></li>
+            <li><a href="#"><img src="https://th.bing.com/th/id/R.be887a8fc3068617bc6b0a79ee2fc51e?rik=YGlcM3svx15cEA&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_568512.png&ehk=SnEa7IwlXslp69QWrrP0M3FQ2uZHuKCAQCsBVgBQUoc%3d&risl=&pid=ImgRaw&r=0" alt="Nouveautés"></a></li>
+            <li><a href="#"><img src="https://th.bing.com/th/id/R.be887a8fc3068617bc6b0a79ee2fc51e?rik=YGlcM3svx15cEA&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_568512.png&ehk=SnEa7IwlXslp69QWrrP0M3FQ2uZHuKCAQCsBVgBQUoc%3d&risl=&pid=ImgRaw&r=0" alt="Genres"></a></li>
+            <li><a href="#"><img src="https://th.bing.com/th/id/R.be887a8fc3068617bc6b0a79ee2fc51e?rik=YGlcM3svx15cEA&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_568512.png&ehk=SnEa7IwlXslp69QWrrP0M3FQ2uZHuKCAQCsBVgBQUoc%3d&risl=&pid=ImgRaw&r=0" alt="Genres"></a></li>
+            <li><a href="#"><img src="https://th.bing.com/th/id/R.be887a8fc3068617bc6b0a79ee2fc51e?rik=YGlcM3svx15cEA&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_568512.png&ehk=SnEa7IwlXslp69QWrrP0M3FQ2uZHuKCAQCsBVgBQUoc%3d&risl=&pid=ImgRaw&r=0" alt="Genres"></a></li>
+            <li><a href="#"><img src="https://th.bing.com/th/id/R.be887a8fc3068617bc6b0a79ee2fc51e?rik=YGlcM3svx15cEA&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_568512.png&ehk=SnEa7IwlXslp69QWrrP0M3FQ2uZHuKCAQCsBVgBQUoc%3d&risl=&pid=ImgRaw&r=0" alt="Genres"></a></li>
+        </ul>
+    </section>
+      
+    <div class="main">
+        <section class="banner" onclick="window.location.href='/movies'">
+            <img src="https://img00.deviantart.net/5aee/i/2017/215/9/6/justice_league_movie_banner_poster_by_arkhamnatic-dbir20a.png" alt="Bannière promotionnelle">
+            <div class="banner-content">
+                <h2>Film en Vedette</h2>
+                <button>Regarder Maintenant</button>
+            </div>
+        </section>
+        
+        <h2 class="section-title">Nouveautés</h2>
+        <section class="film-grid">
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+        </section>
+
+        <h2 class="section-title">Les plus regardés</h2>
+        <section class="film-grid">
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+            <div class="film-card">
+                <img src="https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0" alt="Affiche du film">
+            </div>
+        </section>
+
+        <div id="movie-previewer">
+            <div id="film-info">
+                <h2>Titre du film</h2>
+                <p>Réalisateur: Nom du réalisateur</p>
+                <p>Plot: Description du film</p>
+            </div>
+            <video id="film-preview" width="50%" height="400" controls>
+                <source src="film.mp4" type="video/mp4">
+                Votre navigateur ne prend pas en charge les vidéos HTML5.
+            </video>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+    <footer>
+        <ul>
+            <li><a href="#">Conditions d'utilisation</a></li>
+            <li><a href="#">Politique de confidentialité</a></li>
+            <li><a href="#">Aide</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </footer>
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+        let films = [
+            {
+                titre: 'Titre du film 1',
+                realisateur: 'Nom du réalisateur 1',
+                plot: 'Description du film 1',
+                previewSrc: 'film1.mp4'
+            },
+            {
+                titre: 'Titre du film 2',
+                realisateur: 'Nom du réalisateur 2',
+                plot: 'Description du film 2',
+                previewSrc: 'film2.mp4'
+            },
+            {
+                titre: 'Titre du film 1',
+                realisateur: 'Nom du réalisateur 1',
+                plot: 'Description du film 1',
+                previewSrc: 'film1.mp4'
+            },
+            {
+                titre: 'Titre du film 2',
+                realisateur: 'Nom du réalisateur 2',
+                plot: 'Description du film 2',
+                previewSrc: 'film2.mp4'
+            },
+            {
+                titre: 'Titre du film 1',
+                realisateur: 'Nom du réalisateur 1',
+                plot: 'Description du film 1',
+                previewSrc: 'film1.mp4'
+            },
+            {
+                titre: 'Titre du film 2',
+                realisateur: 'Nom du réalisateur 2',
+                plot: 'Description du film 2',
+                previewSrc: 'film2.mp4'
+            },
+            {
+                titre: 'Titre du film 1',
+                realisateur: 'Nom du réalisateur 1',
+                plot: 'Description du film 1',
+                previewSrc: 'film1.mp4'
+            },
+            {
+                titre: 'Titre du film 2',
+                realisateur: 'Nom du réalisateur 2',
+                plot: 'Description du film 2',
+                previewSrc: 'film2.mp4'
+            },
+            {
+                titre: 'Titre du film 1',
+                realisateur: 'Nom du réalisateur 1',
+                plot: 'Description du film 1',
+                previewSrc: 'film1.mp4'
+            },
+            {
+                titre: 'Titre du film 2',
+                realisateur: 'Nom du réalisateur 2',
+                plot: 'Description du film 2',
+                previewSrc: 'film2.mp4'
+            },
+            {
+                titre: 'Titre du film 1',
+                realisateur: 'Nom du réalisateur 1',
+                plot: 'Description du film 1',
+                previewSrc: 'film1.mp4'
+            },
+            {
+                titre: 'Titre du film 2',
+                realisateur: 'Nom du réalisateur 2',
+                plot: 'Description du film 2',
+                previewSrc: 'film2.mp4'
+            },
+        ];
+
+        let MoviePreviewer = document.getElementById('movie-previewer');
+        let filmCards = document.querySelectorAll('.film-card');
+        let filmPreview = document.getElementById('film-preview');
+        let filmInfo = document.getElementById('film-info');
+
+        filmCards.forEach(function(filmCard, index) {
+            let film = films[index];
+
+            filmCard.addEventListener('mouseover', function() {
+                // Mettre à jour l'aperçu du film
+                filmPreview.src = film.previewSrc;
+                MoviePreviewer.classList.add('active');
+
+
+                // Mettre à jour les informations du film
+                filmInfo.innerHTML = `
+                    <h2>${film.titre}</h2>
+                    <p>Réalisateur: ${film.realisateur}</p>
+                    <p>Plot: ${film.plot}</p>
+                `;
+            });
+
+            MoviePreviewer.addEventListener('mouseover', function() {
+                MoviePreviewer.classList.add('active');
+            });
+
+            MoviePreviewer.addEventListener('mouseout', function() {
+                MoviePreviewer.classList.remove('active');
+            });
+
+            filmCard.addEventListener('mouseout', function() {
+                MoviePreviewer.classList.remove('active');
+            });
+        });
+
+
+
+        let filmGrids = document.querySelectorAll('.film-grid');
+        let isDragging = false;
+        let startPositionX = 0;
+        let scrollLeft = 0;
+
+        filmGrids.forEach(function(filmGrid, index) {
+            filmGrid.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startPositionX = e.clientX - filmGrid.offsetLeft;
+                scrollLeft = filmGrid.scrollLeft;
+            });
+
+            filmGrid.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            filmGrid.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.clientX - filmGrid.offsetLeft;
+                const walk = (x - startPositionX); // Contrôle de la vitesse de défilement
+                filmGrid.scrollLeft = scrollLeft - walk;
+            });
+        });
+        
+    </script>
+{% endblock %}

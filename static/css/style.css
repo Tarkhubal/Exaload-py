@@ -1,0 +1,183 @@
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    /* Scrollbars */
+    width: 14px;
+    height: 14px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    /* Barre */
+    border: solid 0 transparent;
+    border-right-width: 4px;
+    -webkit-border-radius: 5px;
+    -webkit-border-top-right-radius: 9px 5px;
+    -webkit-border-bottom-right-radius: 9px 5px;
+    -webkit-box-shadow: inset 0 0 0 1px #8d87f8, inset 0 0 0 6px #8680eb;
+}
+
+::-webkit-scrollbar-corner {
+    /* Coin de la fenêtre */
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    /* Barre quand survolée */
+    -webkit-transition: all 0.2s ease-out 0s;
+    -moz-transition: all 0.2s ease-out 0s;
+    transition: all 0.2s ease-out 0s;
+    -webkit-box-shadow: inset 0 0 0 1px #8d87f8,
+                        inset 0 0 0 6px #8680eb;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    /* Barre du bas */
+    border-right-width: 0;
+    border-bottom-width: 4px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px 9px;
+    -webkit-border-bottom-left-radius: 5px 9px;
+}
+
+
+/* Nav */
+
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    width: 100%;
+}
+
+nav #exaloadlogo {
+    max-width: 75px;
+}
+
+nav .logocontainer {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+nav .buttonwrap {
+    margin-right: 40px;
+}
+
+nav .logocontainer .navlogo {
+    margin-left: 20px;
+}
+
+
+nav .hamburgerlogowrap {
+    display: flex;
+    align-items: center;
+}
+
+nav .hamburger {
+    display: none;
+    color: #d7d7d7;
+    background-color: #1f1d2b;
+    border: none;
+    margin-right: 10px;
+}
+
+nav .createbtn {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    width: 126px;
+    height: 45px;
+    color: #bcbcbc;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+nav .createbtn.selectedbtn {
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
+}
+
+nav .navlogo {
+    height: 100%;
+    background: linear-gradient(93.51deg, #9b51e0 2.84%, #ffffff 99.18%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+nav .navlink {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #bcbcbc;
+    text-decoration: none;
+}
+
+nav .navlink.selectedlink {
+    background: linear-gradient(93.51deg, #9b51e0 2.84%, #ffffff 99.18%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: 1.5px solid #9b51e0;
+}
+
+nav .navlink:not(:last-child) {
+    margin-right: 32px;
+}
+
+
+@media screen and (max-width: 925px) {
+    .navlinkwrap {
+        display: none;
+    }
+
+    .buttonwrap {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex !important;
+        align-items: center;
+    }
+}
+
+
+
+@keyframes leftslide {
+    from {
+        transform: translateX(-700px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes rightslide {
+    from {
+        transform: translateX(550px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+body {
+    margin: 0;
+    background-color: #1f1d2b;
+}
+
+.hidden {
+    display: none;
+}

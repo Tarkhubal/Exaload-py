@@ -1,0 +1,35 @@
+The fck License (FCKL) - Tarkhubal
+----------------------------------------------
+
+All rights reserved.
+
+No part of this publication may be reproduced,
+distributed, or transmitted in any form or by
+any means, including photocopying, recording,
+or other electronic or mechanical methods,
+without the prior written permission of the
+publisher, except in the case of brief
+quotations embodied in critical reviews and
+certain other noncommercial uses permitted by
+copyright law. For permission requests, write
+to the publisher, addressed “Attention:
+Permissions Coordinator,” at the address below.
+
+thb5309@gmail.com
+
+© Copyright 2023 Thomas BLANC
+https://tarkhubal.github.io
+https://github.com/Tarkhubal
+
+Deleting this file will not make you the author
+of the code, and you will not be able to use it
+for commercial purposes without permission.
+
+Using the code for commercial purposes is only
+possible with the permission of the author.
+
+The author is not responsible for the use of
+the code by third parties.
+
+For all questions, please contact the author
+at the email address above.

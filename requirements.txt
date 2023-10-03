@@ -1,0 +1,6 @@
+flask
+requests
+flask-login
+flask-sqlalchemy
+flaskwebgui
+waitress

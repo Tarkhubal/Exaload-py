@@ -1,0 +1,15 @@
+:root {
+    --main-bg-color: #f8f8fa;
+    --main-txt-color: #242424;
+    --main-dots-color: #002d61;
+
+    --nav-bg-color: #cc3232;
+    --nav-link-color: #000000;
+
+    --faq-title-color: #000000;
+    --faq-border-button-color: #f88f25;
+    --faq-button-bg-color: #f88f25;
+    --faq-button-color: #000000;
+    --faq-button-hover-color: #f88f25;
+    --faq-button-hover-after-border-color: #03b5d2;
+}

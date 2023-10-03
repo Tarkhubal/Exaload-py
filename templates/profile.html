@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="title">Welcome, {{ data["name"] }} !</h1>
+
+    <h2>Vos stats du jour</h2>
+    <h3>Niveau d'Exacoins</h3>
+    <div class="stats">
+        <div class="stat-item">
+            <p class="percent">{{ data["exacoins"]["real"] }}<span>.{{ data["exacoins"]["decimal"] }}</span><sup>EX</sup></p>
+            <p>actuellement</p>
+        </div>
+        <div class="stat-item">
+            <p class="percent"><span>{{ data["diff"]["sign"] }}</span>{{ data["diff"]["real"] }}<span>.{{ data["diff"]["decimal"] }}</span><sup>EX</sup></p>
+            <p>par rapport à hier</p>
+        </div>
+    </div>
+
+
+    <h3>Cashback</h3>
+    <p>Pour chaque <strong>achat</strong> vous gagnerez...</p>
+    <div class="stats">
+        <div class="stat-item">
+            <p class="percent">{{ data["cashback"]["buy"]["movies"] }}<sup>%</sup></p>
+            <p>par film</p>
+        </div>
+        <div class="stat-item">
+            <p class="percent">{{ data["cashback"]["buy"]["serie_ep"] }}<sup>%</sup></p>
+            <p>par épisode de série</p>
+        </div>
+        <div class="stat-item">
+            <p class="percent">{{ data["cashback"]["buy"]["games"] }}<sup>%</sup></p>
+            <p>par jeu</p>
+        </div>
+        <div class="stat-item">
+            <p class="percent">{{ data["cashback"]["buy"]["musics"] }}<sup>%</sup></p>
+            <p>par musique</p>
+        </div>
+    </div>
+
+    <p>Pour chaque <strong>location</strong> vous gagnerez...</p>
+    <div class="stats">
+        <div class="stat-item">
+            <p class="percent">{{ data["cashback"]["location"]["movies"] }}<sup>%</sup></p>
+            <p>par film</p>
+        </div>
+        <div class="stat-item">
+            <p class="percent">{{ data["cashback"]["location"]["serie_ep"] }}<sup>%</sup></p>
+            <p>par épisode de série</p>
+        </div>
+        <div class="stat-item">
+            <p class="percent">{{ data["cashback"]["location"]["musics"] }}<sup>%</sup></p>
+            <p>par musique</p>
+        </div>
+    </div>
+    
+    <h3>Gains</h3>
+    <div class="stats">
+        <div class="stat-item">
+            <p class="percent">{{ data["winning"]["daily_per_ad"] }}<sup>EX</sup></p>
+            <p>par publicité journalière</p>
+        </div>
+        <div class="stat-item">
+            <p class="percent">{{ data["winning"]["per_movie_ad"] }}<sup>EX</sup></p>
+            <p>par pub pendant<br>vos films et séries</p>
+        </div>
+        <div class="stat-item">
+            <p class="percent">{{ data["winning"]["per_banner_ad"] }}<sup>EX</sup></p>
+            <p>par bannière de pub<br>affichée</p>
+        </div>
+    </div>
+    <p class="last-update">{{ data["last_update"] }}</p>
+{% endblock %}

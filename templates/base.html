@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }} | Exaload</title>
+    <link rel="icon" type="image/png" href="static/assets/logo.png" />
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/{{ stylesheet }}.css">
+
+{% if request.cookies.get('page_theme') == 'dark' %}
+    <link rel="stylesheet" href="static/css/colors_vars_dark.css">
+{% else %}
+    <link rel="stylesheet" href="static/css/colors_vars_light.css">
+
+{% endif %}
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logocontainer" onclick="window.location.href='/'">
+                <img src="static/assets/logo.png" alt="logo" id="exaloadlogo">
+                <a class="navlogo">Exaload</a>
+            </div>
+            <button class="hamburger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                    <path d="M3 12h18M3 6h18M3 18h18"/>
+                </svg>
+            </button>
+            <div class="navlinkwrap">
+                {% if title in ["Accueil", "Découvrir", "FAQ", "Exacoins"]%}
+                    {% if title == "Accueil" %}
+                    <a href="/" class="navlink selectedlink">Accueil</a>
+                    {% else %}
+                    <a href="/" class="navlink">Accueil</a>
+                    {% endif %}
+
+                    {% if title == "Découvrir" %}
+                    <a href="/discover" class="navlink selectedlink">Découvrir</a>
+                    {% else %}
+                    <a href="/discover" class="navlink">Découvrir</a>
+                    {% endif %}
+
+                    {% if title == "Exacoins" %}
+                    <a href="/exacoins" class="navlink selectedlink">Exacoins</a>
+                    {% else %}
+                    <a href="/exacoins" class="navlink">Exacoins</a>
+                    {% endif %}
+
+                    {% if title == "FAQ" %}
+                    <a href="/faq" class="navlink selectedlink">FAQ</a>
+                    {% else %}
+                    <a href="/faq" class="navlink">FAQ</a>
+                    {% endif %}
+                {% else %}
+                    <a href="/" class="navlink">Accueil</a>
+                    <a href="/discover" class="navlink">Découvrir</a>
+                    <a href="/exacoins" class="navlink">Exacoins</a>
+                    <a href="/faq" class="navlink">FAQ</a>
+                {% endif %}
+            </div>
+            <div class="buttonwrap">
+                <button onclick="window.location.href='/signup'" class="createbtn selectedbtn">Rejoindre</button>
+                <button onclick="window.location.href='/login'" class="createbtn">Se connecter</button>
+            </div>
+        </nav>
+    </header>
+    <div class="landingpage">
+    {% block content %}
+    {% endblock %}
+    </div>
+<div class="footer">
+    <div class="footer-main">
+        Exaload - le meilleur pour votre portefeuille
+    </div>
+    <div class="footer-navigate">
+        <div class="nav">
+            <h5>Magasin</h5>
+            <p>Jeux</p>
+            <p>Musiques</p>
+            <p>Films et séries</p>
+            <p>Voir plus</p>
+        </div>
+        <div class="nav">
+            <h5>Trucs légaux</h5>
+            <p>Mentions légales</p>
+            <p>Politique de confidentialité</p>
+            <p>Conditions d'utilisation</p>
+            <p>Conditions d'achat & vente</p>
+            <p>Voir plus</p>
+        </div>
+        <div class="nav">
+            <h5>Exacorp</h5>
+            <p>Présentation de l'Exacorp</p>
+            <p>Notre équipe</p>
+            <p>Timeline</p>
+            <p>Voir plus</p>
+        </div>
+    </div>
+</div>
+<div class="footer2">
+    <p>© Copyright 2023 Exaload - Thomas BLANC | Fait sur une base de <a href="https://codepen.io/erkanerdil016/pen/LYdOpKj">CodePen</a></p>
+</div>
+</div>
+</body>
+</html>

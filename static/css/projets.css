@@ -1,0 +1,15 @@
+.projets {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.projets .projets-item {
+    width: 25vw;
+    height: 20vw;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin: 10px;
+}
+.projets .projets-item p {
+    text-wrap: balance;
+}

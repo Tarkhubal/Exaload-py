@@ -1,0 +1,358 @@
+.landingpage {
+    margin: 0 auto;
+    padding: 0 80px;
+    max-width: 1100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+.landingpage::before {
+    content: "";
+    position: absolute;
+    width: 123px;
+    height: 123px;
+    left: 60%;
+    top: 138px;
+    filter: blur(90px);
+    background-color: #fb37ff;
+}
+
+.landingpage::after {
+    content: "";
+    position: absolute;
+    width: 123px;
+    height: 123px;
+    left: 80%;
+    top: 550px;
+    background-color: #18b2de;
+    filter: blur(80px);
+}
+
+.landingpage .box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+
+.landingpage .footer {
+    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.landingpage .footer2 {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-top: 1px solid #f2f2f2;
+}
+
+.box .infobox {
+    animation-name: leftslide;
+    animation-duration: 0.8s;
+    max-height: 500px;
+    max-width: 55%;
+    overflow: hidden;
+}
+
+.box .infobox-boldtext {
+    margin: 0;
+    font-family: Poppins;
+    color: #ffffff;
+    font-size: 65px;
+    font-weight: 600;
+    line-height: 60px;
+    letter-spacing: -2px;
+    text-align: left;
+}
+
+.box .infobox-slimtext {
+    margin: 24px 0;
+    font-family: Poppins;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.box .infobox-btnwrapper {
+    display: flex;
+}
+
+.box .infobox-explorebtn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f1d2b;
+    padding: 8px 38px;
+    border-radius: 16px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: -1px;
+    color: #ffffff;
+}
+
+.box .infobox-createbtn {
+    cursor: pointer;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 8px 38px;
+    border: 1px solid #d7d7d7;
+    border-radius: 16px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: -1px;
+    color: #ffffff;
+}
+
+.box .infobox .selected {
+    border: none;
+    background: linear-gradient(103.91deg,
+            #9b51e0 21.01%,
+            rgba(48, 129, 237, 0.8) 100%);
+}
+
+.box .display {
+    animation-name: rightslide;
+    animation-duration: 0.8s;
+    padding: 14px;
+    border: 1px solid;
+    background: linear-gradient(169.44deg,
+            rgba(58, 129, 191, 0.08) 1.85%,
+            rgba(65, 48, 90, 0.08) 98.72%);
+    border-radius: 35px;
+    max-height: 450px;
+    max-width: 50%;
+    overflow: hidden;
+}
+
+.box .display-card {
+    object-fit: cover;
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+}
+
+.box .display .infowrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.box .display .info {
+    display: flex;
+    align-items: center;
+    font-family: "Poppins";
+    font-style: normal;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.box .display .info p {
+    margin: 0;
+}
+
+.box .display .info-img {
+    object-fit: cover;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.box .display .info2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: "Poppins";
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.box .display .info2 p {
+    margin: 0;
+}
+
+.box .display .info2 .iconwrapper {
+    display: flex;
+    align-items: center;
+}
+
+.box .display .info2 .iconwrapper svg {
+    margin-right: 5px;
+}
+
+.footer-main {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 40px;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.footer-navigate {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-navigate .nav {
+    margin-left: 60px;
+}
+
+.footer-navigate .nav h5 {
+    margin: 0;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #ffffff;
+}
+
+.footer-navigate .nav p {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    color: #d7d7d7;
+}
+
+.footer2 p {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 36px;
+    color: #828282;
+    text-align: right;
+}
+
+@media screen and (max-width: 1040px) {
+    .box {
+        flex-direction: column;
+    }
+
+    .box .infobox {
+        max-height: 450px;
+        max-width: none;
+        margin-bottom: 50px;
+    }
+
+    .box .display {
+        display: none;
+        max-height: none;
+        max-width: none;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+
+    .footer-main {
+        max-width: 80%;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .footer-navigate .nav:first-child {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        flex-direction: column;
+    }
+
+    .box .infobox {
+        max-height: none;
+        max-width: none;
+        margin-bottom: 50px;
+    }
+
+    .box .display {
+        display: block;
+        max-height: none;
+        max-width: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .box .infobox-boldtext {
+        font-size: 45px;
+        line-height: 50px;
+    }
+
+    .box .infobox-slimtext {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .footer-main {
+        font-size: 20px;
+        line-height: 30px;
+        max-width: 100%;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .footer-navigate {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .footer-navigate .nav {
+        margin-left: 20px;
+    }
+
+    .footer-navigate .nav h5 {
+        font-size: 15px;
+        line-height: 30px;
+    }
+
+    .footer-navigate .nav p {
+        font-size: 10px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .landingpage .box .infobox-boldtext {
+        font-size: 32px;
+        line-height: 1.4em;
+        text-align: center;
+    }
+
+    .landingpage .box .infobox-slimtext {
+        text-align: center;
+    }
+
+    .landingpage .box .infobox-btnwrapper {
+        justify-content: center;
+    }
+}

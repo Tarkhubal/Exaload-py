@@ -1,0 +1,292 @@
+body {
+    /* background-image: linear-gradient(to bottom right, #2961aa, #26205e); */
+    background-image: url("https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* Pour les navigateurs WebKit */
+/* Barre de défilement */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Piste de la barre de défilement */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* Poignée de la barre de défilement */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(214, 214, 214, 0.897);
+    border-radius: 5px;
+}
+
+
+
+
+.topbar {
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+
+/* Réinitialisation des styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles généraux */
+body {
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+/* Barre de navigation futuriste */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    padding: 20px;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #00b0e8;
+}
+
+/* Bannière promotionnelle */
+.banner {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    height: 70vh;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    /* opacity: 0.7; */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* .banner img:hover {
+    opacity: 1;
+} */
+
+.banner-content {
+    position: absolute;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.banner-content:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.banner-content h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.banner-content button {
+    background-color: #00b0e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.banner-content button:hover {
+    background-color: #0094c5;
+}
+
+/* Grille de films futuriste */
+
+.film-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+    grid-auto-columns: max-content;
+    grid-template-rows: 1fr;
+    gap: 20px;
+    padding: 40px 20px;
+    overflow-x: auto;
+    /* overflow-y: hidden; */
+    height: 500px;
+}
+
+.film-card {
+    grid-row: 1;
+    height: 100%;
+    grid-column: auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(500px - (40px *2) - (20px *2));
+    transition: background-color 0.3s ease-in-out;
+}
+
+.film-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.film-card h3 {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.film-card p {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.film-card:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+#movie-previewer {
+    position: fixed;
+    top: 0;
+    left: 60px;
+    /* Correspond à la marge gauche de la barre latérale */
+    width: calc(100% - 60px);
+    /* Largeur de la section principale */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    display: flex;
+    visibility: hidden;
+    /* Masque l'élément */
+    opacity: 0;
+    z-index: 99;
+    transition: visibility 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+}
+
+#movie-previewer.active {
+    transition: visibility 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+    /* display: flex; */
+    visibility: visible;
+    /* Affiche l'élément */
+    opacity: 1;
+}
+
+#film-info {
+    width: 50%;
+}
+
+
+
+/* Pied de page futuriste */
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    padding: 20px;
+}
+
+footer ul li {
+    margin-left: 20px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+footer ul li a:hover {
+    color: #00b0e8;
+}
+
+
+
+/* Barre latérale */
+.sidebar {
+    background-color: #1b1b1b;
+    height: 100vh;
+    width: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 100;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+}
+
+.sidebar img {
+    width: 30px;
+    height: 30px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+    filter: invert(1);
+}
+
+.sidebar img:hover {
+    opacity: 1;
+}
+
+.main {
+    margin-left: 60px;
+    padding: 20px;
+}

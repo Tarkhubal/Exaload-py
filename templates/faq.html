@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="static/css/faq.css">
+<div class="container">
+    <div class="accordion">
+        <div class="accordion-item">
+            <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">Qu'est-ce qu'Exaload ?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+            <p>Exaload a pour but de permettre une accessibilité simple et surtout quasiment gratuite à du contenu, comme des films, des jeux vidéos, des séries, des applications ou encore pleins d'autres choses.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">D'accord mais comment ça marche alors ?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+            <p>Nous avons créé une (fausse) monnaie interne au site (plus d'informations plus bas) nommée Exacoin.<br><br>De façon globale vous pouvez gagner un petit pourcentage de cash-back (retour d'argent) variable pour tout achat ou location chez Exaload. Plus vous achetez/louez et plus le pourcentage augmente !<br><br>Chaque "secteur" (secteur des films, secteur des jeux etc) a son propre fonctionnement en matière de gain d'Exacoins :<br>- De façon globale, chaque jour vous pouvez vous rendre dans votre profil et regarder jusqu'à 5 publicités d'environ 30s<br>- Pour les films, séries, animés et musiques, vous gagnez une petite somme d'Exacoins pour chaque publicité que vous visionnez/entendez (stonks quoi)<br>- Pour les jeux et applications, vous pouvez parfois gagner une petite somme en passant sur une page avec du "Contenu sponsorisé", mais il dépend de pleins de facteurs et donc est assez aléatoire<br></p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">Il y a une douille là...</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+            <p>Oui je comprends, ça doit vous paraître assez étrange, mais tout est sous contrôle : par exemple, il y a un stade limite chaque jour (qui est variable selon le mois, l'argent gagné par l'Exacorp, votre activité etc) (il peut être trouvé sur votre compte Exaload) où vous ne gagnerez plus d'Exacoins. Il sera de façon globale assez bas au lancement d'Exaload puis augmentera petit à petit au fur et à mesure du temps et du nombre d'achats et d'argent généré.<br><br>Toujours pas convaincu ? Sachez que vous pouvez désactiver cette fonctionnalité dans les paramètres, et que vous pouvez également déposer de l'argent vous même (un genre de crédit quoi)</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <button id="accordion-button-4" aria-expanded="false"><span class="accordion-title">Mouais... et c'est légal ?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+            <p>Oui, c'est votre choix donc c'est légal (voir les conditions d'utilisation pour plus d'informations)</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title">Et les créateurs ils sont rémunérés ?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+            <p>Évidemment ! Plus de 80% de l'argent que nous générons (encore une fois ce chiffre dépend du secteur) revient directement aux créateurs de contenu !</p>
+            </div>
+        </div>
+    </div>
+    <p>Si vous avez d'autres questions, n'hésitez pas à rejoindre notre serveur <a href="https://discord.gg/2FjfpXavSF">Discord</a>, à aller voir la page <a href="/contact">Contact</a> et à aller lire nos conditions d'achat, de vente et d'utilisation !</p>
+</div>
+<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+<script src="static/js/faq.js"></script>
+
+{% endblock %}

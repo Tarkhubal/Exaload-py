@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr" class="reset full-h">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }} | Exaload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body class="full-h">
+    <main class="full-h">
+    {% block content %}
+    {% endblock %}
+    </main>
+    {% block footer %}
+    {% endblock %}
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>

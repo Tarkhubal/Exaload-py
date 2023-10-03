@@ -1,0 +1,15 @@
+:root {
+    --main-bg-color: #2b2d31;
+    --main-txt-color: #ffffff;
+    --main-dots-color: #f88f25;
+
+    --nav-bg-color: #202020;
+    --nav-link-color: #ffffff;
+
+    --faq-title-color: #e4e4e4;
+    --faq-border-button-color: #4940f4;
+    --faq-button-bg-gradient: linear-gradient(93.51deg, #ffffff 1.84%, #4940f4 99.18%);
+    --faq-button-color: #ffffff;
+    --faq-button-hover-color: #4940f4;
+    --faq-button-hover-after-border-color: #03b5d2;
+}

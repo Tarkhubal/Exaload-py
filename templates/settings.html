@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paramètres</title>
+    <style>
+        /* Styles pour le thème clair */
+        body.theme-clair {
+            background-color: #fff;
+            color: #000;
+        }
+        
+        /* Styles pour le thème sombre */
+        body.theme-sombre {
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Fonction pour changer le thème
+        function changerTheme(theme) {
+            $.ajax({
+                url: '/switch_theme',
+                type: 'POST',
+                data: {theme: theme},
+                success: function() {
+                    location.reload();  // Recharger la page après avoir changé le thème
+                }
+            });
+        }
+    </script>
+</head>
+<body class="theme-{{ theme }}">
+    <h1>Changer de thème</h1>
+    <p>Thème actuel: {{ theme }}</p>
+    
+    <button onclick="changerTheme('clair')">Clair</button>
+    <button onclick="changerTheme('sombre')">Sombre</button>
+</body>
+</html>
