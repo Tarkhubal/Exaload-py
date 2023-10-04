@@ -25,7 +25,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     name = db.Column(db.String(1000))
-    background = db.Column(db.String(1000), default="/static/assets/img/wallhaven-83ogv2.png")
+    background = db.Column(db.String(1000), default="static/assets/img/wallhaven-83ogv2.png")
 
 @login_manager.user_loader
 def load_user(user_id):
