@@ -1,4 +1,8 @@
-{% extends "base.html" %}
+{% extends "connected/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
 
 {% block content %}
     <h1 class="title">Welcome, {{ data["name"] }} !</h1>

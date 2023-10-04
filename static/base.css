@@ -4,6 +4,11 @@
             hsl(var(--hue), 95%, 84%));
 }
 
+@font-face {
+    font-family: 'Colombia';
+    src: url('/static/fonts/Colombia-Rp0DV.ttf');
+}
+
 
 body {
     /* background-image: linear-gradient(to bottom right, #2961aa, #26205e); */
@@ -13,26 +18,11 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: 'Colombia', sans-serif;
+    color: white;
+    font-weight: bolder;
+    font-size: 30px;
 }
-
-
-/* Pour les navigateurs WebKit */
-/* Barre de défilement */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-/* Piste de la barre de défilement */
-::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-
-/* Poignée de la barre de défilement */
-::-webkit-scrollbar-thumb {
-    background-color: rgba(214, 214, 214, 0.897);
-    border-radius: 5px;
-}
-
 
 main .content {
     padding-left: 80px;
@@ -204,12 +194,6 @@ main .content {
     box-sizing: border-box;
 }
 
-/* Styles généraux */
-body {
-    font-family: 'Arial', sans-serif;
-    color: white;
-}
-
 /* Barre de navigation futuriste */
 .top-bar-first {
     list-style: none;
@@ -237,7 +221,7 @@ body {
 nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 16px;
+    font-size: 25px;
     transition: color 0.3s ease-in-out;
 }
 
@@ -526,10 +510,6 @@ footer ul li a:hover {
     transform: translateX(10%);
 }
 
-body {
-    overflow: hidden;
-}
-
 
 
 
@@ -601,4 +581,42 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
+}
+
+
+
+
+h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #00b0e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0094c5;
 }

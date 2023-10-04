@@ -1,11 +1,11 @@
-from flask import Flask, render_template, redirect, url_for, request, flash, make_response, send_from_directory
+from flask import Flask, render_template, redirect, url_for, request, flash, make_response, send_from_directory, render_template_string
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 # from flaskwebgui import FlaskUI
+from PIL import Image
 
 # import flaskwebgui
-import json
 import time
 
 
@@ -20,6 +20,12 @@ login_manager = LoginManager()
 login_manager.login_view = "login"
 login_manager.init_app(app)
 
+class User(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
+    email = db.Column(db.String(100), unique=True)
+    password = db.Column(db.String(100))
+    name = db.Column(db.String(1000))
+    background = db.Column(db.String(1000), default="/static/assets/img/wallhaven-83ogv2.png")
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -27,11 +33,16 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
-    email = db.Column(db.String(100), unique=True)
-    password = db.Column(db.String(100))
-    name = db.Column(db.String(1000))
+
+
+def get_scrollbar_gradient(image_path: str):
+    image = Image.open(image_path)
+
+    top_right_pixel = image.getpixel((image.width - 1, 0))
+    bottom_right_pixel = image.getpixel((image.width - 1, image.height - 1))
+    return f"linear-gradient(to bottom, rgba{top_right_pixel}, rgba{bottom_right_pixel});"
+
+
 
 
 
@@ -57,7 +68,7 @@ def index():
 
     # Si l'utilisateur est connecté, afficher le template main.html sinon afficher le template index.html
     if current_user.is_authenticated:
-        return render_template('connected/index.html', title="Accueil")
+        return render_template('connected/index.html', title="Accueil", scroll_bar_gradient=get_scrollbar_gradient(current_user.background))
     
     return render_template('not-connected/index.html', stylesheet="index", title="Accueil")
 
@@ -177,7 +188,7 @@ def profile():
         "max_win_per_day": "1.24",
         "last_update": str(time.strftime("Mis à jour dernièrement le %d/%m/%Y à %H:%M:%S", time.localtime()))
     }
-    return render_template('profile.html', data=data, stylesheet="profile", title="Profil")
+    return render_template('connected/profile.html', data=data, title="Profil", scroll_bar_gradient=get_scrollbar_gradient(current_user.background))
 
 
 
@@ -297,8 +308,6 @@ def _api_v1_movies_search():
                 break
     
     return correct
-
-
 
 
 # def start_flask(**server_kwargs):

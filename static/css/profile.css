@@ -15,7 +15,10 @@
     border-radius: 12px;
     margin: 10px;
     text-align: center;
-    padding-top: 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .stats .stat-item * {
@@ -26,12 +29,11 @@
 .stats .stat-item .percent {
     color: white;
     font-size: 40pt;
-    margin-top: 20px;
 }
 
 .stats .stat-item .percent sup {
     color: grey;
-    font-size: 23pt;
+    font-size: 20pt;
 }
 
 

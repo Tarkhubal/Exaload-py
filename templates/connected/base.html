@@ -12,6 +12,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
     {% block head %}
     {% endblock %}
+    <style>
+        /* Pour les navigateurs WebKit */
+        /* Barre de défilement */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Piste de la barre de défilement */
+        ::-webkit-scrollbar-track {
+            background-image: {{ scroll_bar_gradient }};
+        }
+
+        /* Poignée de la barre de défilement */
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(168, 168, 168, 0.897);
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body class="full-h">
@@ -77,7 +95,7 @@
 
         <div id="profil-preview" class="">
             <!-- <canvas id="orbCanvas"></canvas> -->
-            <div id="profil-top-info">
+            <div id="profil-top-info" onclick="window.location.href='/profile'">
                 <div id="profil-info">
                     <h2>Un Thomas Sauvage !!</h2>
                     <h3>@awildthomas</h3>
