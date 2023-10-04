@@ -190,6 +190,10 @@ main .content {
     height: 60px;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 99;
+    padding-left: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 
@@ -213,7 +217,8 @@ body {
     background-color: transparent;
     padding-right: 20px;
     align-items: center;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
+    width: fit-content;
 }
 
 .top-bar-first {
@@ -500,11 +505,11 @@ footer ul li a:hover {
 @keyframes sb-content-animate {
     0%   { transform: translateX(0%);  }
     50%  { transform: translateX(13%); }
-    100% { transform: translateX(11%); }
+    100% { transform: translateX(10%); }
 }
 
 @keyframes sb-content-animate-reverse {
-    0%   { transform: translateX(11%); }
+    0%   { transform: translateX(10%); }
     50%  { transform: translateX(13%); }
     100% { transform: translateX(0%);  }
 }
@@ -563,4 +568,37 @@ body {
 .dropdown-content ul li {
     /* padding: 5px 0; */
     margin: 5px 0;
+}
+
+
+
+#exaloadlogo {
+    max-width: 40px;
+}
+
+.logocontainer {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: -webkit-fill-available;
+    width: fit-content;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0px 5px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.logocontainer:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.navlogo {
+    background: linear-gradient(93.51deg, #9b51e0 2.84%, #ffffff 99.18%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27px;
 }

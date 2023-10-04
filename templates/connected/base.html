@@ -7,6 +7,9 @@
     <link rel="icon" type="image/png" href="static/assets/logo.png" />
     <title>{{ title }} | Exaload</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
     {% block head %}
     {% endblock %}
 </head>
@@ -14,18 +17,12 @@
 <body class="full-h">
     <main class="full-h">
         <header class="topbar">
+            <div class="logocontainer" onclick="window.location.href='/'">
+                <img src="static/assets/logo.png" alt="logo" id="exaloadlogo">
+                <a class="navlogo">Exaload</a>
+            </div>
             <nav>
                 <ul class="top-bar-first">
-                    <li class="with-sub">
-                        <a href="#">Accueil</a>
-                        <div class="dropdown-content">
-                            <ul>
-                                <li><a href="#">Mon compte</a></li>
-                                <li><a href="#">Bibliothèque</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-                    </li>
                     <li class="with-sub">
                         <a href="#">Politique</a>
                         <div class="dropdown-content">
@@ -79,7 +76,7 @@
         </div>
 
         <div id="profil-preview" class="">
-            <canvas id="orbCanvas"></canvas>
+            <!-- <canvas id="orbCanvas"></canvas> -->
             <div id="profil-top-info">
                 <div id="profil-info">
                     <h2>Un Thomas Sauvage !!</h2>
@@ -135,7 +132,7 @@
     {% block footer %}
     {% endblock %}
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <script src="{{ url_for('static', filename='orbs.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='orbs.js') }}"></script> -->
     {% block scripts %}
     {% endblock %}
 </body>

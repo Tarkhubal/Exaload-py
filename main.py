@@ -21,6 +21,17 @@ login_manager.login_view = "login"
 login_manager.init_app(app)
 
 
+@login_manager.user_loader
+def load_user(user_id):
+    # since the user_id is just the primary key of our user table, use it in the query for the user
+    return User.query.get(int(user_id))
+
+
+class User(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
+    email = db.Column(db.String(100), unique=True)
+    password = db.Column(db.String(100))
+    name = db.Column(db.String(1000))
 
 
 
@@ -39,22 +50,6 @@ def settings():
     
     return render_template('settings.html', title="Paramètres", stylesheet='settings', theme=theme)
 
-@login_manager.user_loader
-def load_user(user_id):
-    # since the user_id is just the primary key of our user table, use it in the query for the user
-    return User.query.get(int(user_id))
-
-
-class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
-    email = db.Column(db.String(100), unique=True)
-    password = db.Column(db.String(100))
-    name = db.Column(db.String(1000))
-
-
-@app.route('/newbase')
-def newbase():
-    return render_template('connected_index.html', title="Nouvelle Base du site")
 
 @app.route('/')
 def index():
@@ -62,9 +57,9 @@ def index():
 
     # Si l'utilisateur est connecté, afficher le template main.html sinon afficher le template index.html
     if current_user.is_authenticated:
-        return render_template('main.html', stylesheet="movies", title="Accueil")
+        return render_template('connected/index.html', title="Accueil")
     
-    return render_template('index.html', stylesheet="index", title="Accueil")
+    return render_template('not-connected/index.html', stylesheet="index", title="Accueil")
 
 
 @app.route('/login')
@@ -202,7 +197,7 @@ def switch_theme():
 @app.errorhandler(404)
 def page_non_trouvee(e):
     last_page = request.referrer if request.referrer not in (None, "None", "none") else "/"
-    return render_template('404.html', last_page=last_page), 404
+    return render_template('errors/404.html', last_page=last_page), 404
 
 
 # ---------------- Games ----------------
