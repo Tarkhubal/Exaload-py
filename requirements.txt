@@ -4,3 +4,4 @@ flask-login
 flask-sqlalchemy
 flaskwebgui
 waitress
+Pillow
