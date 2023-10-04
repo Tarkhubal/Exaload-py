@@ -182,7 +182,7 @@ def profile():
         "max_win_per_day": "1.24",
         "last_update": str(time.strftime("Mis à jour dernièrement le %d/%m/%Y à %H:%M:%S", time.localtime()))
     }
-    return render_template('profile.html', data=data, stylesheet="profile")
+    return render_template('profile.html', data=data, stylesheet="profile", title="Profil")
 
 
 
@@ -201,7 +201,7 @@ def switch_theme():
 # Errors handlers
 @app.errorhandler(404)
 def page_non_trouvee(e):
-    last_page = request.referrer
+    last_page = request.referrer if request.referrer not in (None, "None", "none") else "/"
     return render_template('404.html', last_page=last_page), 404
 
 
