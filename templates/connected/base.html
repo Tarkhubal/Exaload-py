@@ -13,8 +13,8 @@
     {% block head %}
     {% endblock %}
     <style>
-        /* Pour les navigateurs WebKit */
-        /* Barre de défilement */
+        /* Pour les navigateurs WebKit
+           Barre de défilement */
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -81,7 +81,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="#">Films et séries</a></li>
+                        <li><a href="/movies">Films et séries</a></li>
                         <li><a href="#">Musique</a></li>
                         <li><a href="#">Applications</a></li>
                     {% endblock %}
@@ -149,6 +149,7 @@
 
     {% block footer %}
     {% endblock %}
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <!-- <script src="{{ url_for('static', filename='orbs.js') }}"></script> -->
     {% block scripts %}
