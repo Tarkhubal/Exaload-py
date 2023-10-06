@@ -5,9 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <h1 class="title">Welcome, {{ data["name"] }} !</h1>
-
-    <h2>Vos stats du jour</h2>
+    <h2>Tes stats du jour</h2>
     <h3>Niveau d'Exacoins</h3>
     <div class="stats">
         <div class="stat-item">
@@ -22,7 +20,7 @@
 
 
     <h3>Cashback</h3>
-    <p>Pour chaque <strong>achat</strong> vous gagnerez...</p>
+    <p>Pour chaque <strong>achat</strong> tu gagneras...</p>
     <div class="stats">
         <div class="stat-item">
             <p class="percent">{{ data["cashback"]["buy"]["movies"] }}<sup>%</sup></p>
@@ -42,7 +40,7 @@
         </div>
     </div>
 
-    <p>Pour chaque <strong>location</strong> vous gagnerez...</p>
+    <p>Pour chaque <strong>location</strong> tu gagneras...</p>
     <div class="stats">
         <div class="stat-item">
             <p class="percent">{{ data["cashback"]["location"]["movies"] }}<sup>%</sup></p>

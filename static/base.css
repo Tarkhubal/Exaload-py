@@ -510,6 +510,11 @@ footer ul li a:hover {
     transform: translateX(10%);
 }
 
+/* overflow hidden for everything when .active : */
+.active {
+    overflow: hidden;
+}
+
 
 
 
@@ -562,7 +567,7 @@ footer ul li a:hover {
     cursor: pointer;
     height: -webkit-fill-available;
     width: fit-content;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 0px 5px;
     margin: 5px 10px;
     border-radius: 5px;
@@ -570,7 +575,7 @@ footer ul li a:hover {
 }
 
 .logocontainer:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .navlogo {
@@ -582,7 +587,6 @@ footer ul li a:hover {
     font-weight: 700;
     font-size: 27px;
 }
-
 
 
 
