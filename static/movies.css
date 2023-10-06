@@ -29,7 +29,6 @@
     text-align: center;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
-    position: fixed;
     transition: background-color 0.3s ease-in-out;
 }
 
@@ -108,59 +107,27 @@
 
 
 #movie-previewer {
-    position: fixed;
-    top: 0;
-    left: 60px;
-    /* Correspond à la marge gauche de la barre latérale */
-    width: calc(100% - 60px);
-    /* Largeur de la section principale */
+    top: 60px;
+    margin-left: -20px;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 20px;
     display: flex;
     visibility: hidden;
-    /* Masque l'élément */
     opacity: 0;
     z-index: 99;
     transition: visibility 0.3s ease-in-out,
         opacity 0.3s ease-in-out;
+    position: sticky;
 }
 
 #movie-previewer.active {
     transition: visibility 0.3s ease-in-out,
         opacity 0.3s ease-in-out;
-    /* display: flex; */
     visibility: visible;
-    /* Affiche l'élément */
     opacity: 1;
 }
 
 #film-info {
     width: 50%;
-}
-
-
-
-/* Pied de page futuriste */
-footer ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    background-color: transparent;
-    padding: 20px;
-}
-
-footer ul li {
-    margin-left: 20px;
-}
-
-footer ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-    transition: color 0.3s ease-in-out;
-}
-
-footer ul li a:hover {
-    color: #00b0e8;
 }

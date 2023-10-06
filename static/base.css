@@ -22,6 +22,7 @@ body {
     color: white;
     font-weight: bolder;
     font-size: 30px;
+    overflow-x: hidden;
 }
 
 main .content {
