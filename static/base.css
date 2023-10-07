@@ -25,7 +25,7 @@ body {
     overflow-x: hidden;
 }
 
-main .content {
+main #content {
     padding-left: 80px;
     padding-top: 80px;
 }
@@ -54,8 +54,8 @@ main .content {
     position: fixed;
     top: 10px;
     left: 70px;
-    width: calc(40% - 60px);
-    height: 60%;
+    width: calc(45% - 60px);
+    height: 47%;
     /* Largeur de la section principale */
     background-color: rgba(0, 0, 0, 0.26);
     color: white;
@@ -84,7 +84,7 @@ main .content {
     display: flex;
     border-radius: 10px;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.363);
+    background-color: rgb(117 117 117 / 36%);
 }
 
 #orbCanvas {
@@ -136,17 +136,31 @@ main .content {
     margin: 20px 0 0 0;
     display: flex;
     flex-wrap: wrap;
-    height: 50%;
+    height: 33%;
     justify-content: space-between;
 }
 
 #profil-bottom-info .stat-item {
-    width: 40%;
-    height: 45%;
+    width: 32%;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    margin: 10px;
     text-align: center;
+}
+
+#profil-other-buttons {
+    display: flex;
+    height: 15%;
+    margin-top: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+#profil-other-buttons a {
+    margin: 0 20px;
+    color: #f8f8ff;
+    background-color: rgb(117 117 117 / 36%);
+    padding: 15px;
+    border-radius: 12px;
 }
 
 .stat-item * {
@@ -501,12 +515,12 @@ footer ul li a:hover {
 }
 
 
-.content {
+#content {
     animation: sb-content-animate-reverse 0.3s ease-in-out;
     transform: translateX(0);
 }
 
-.content.active {
+#content.active {
     overflow: hidden;
     animation: sb-content-animate 0.3s ease-in-out;
     transform: translateX(10%);
@@ -625,4 +639,16 @@ button {
 
 button:hover {
     background-color: #0094c5;
+}
+
+
+/* Classe pour animer le fondu à l'entrée */
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Classe pour animer le fondu à la sortie */
+.fade-out {
+    opacity: 0;
 }

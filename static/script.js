@@ -10,7 +10,7 @@ profilButton.addEventListener('click', function () {
 
 
 let sidebar = document.querySelector('.sidebar-icons');
-let right = document.querySelector('.content');
+let right = document.getElementById('content');
 let subsidebar = document.querySelector('.subsidebar');
 
 sidebar.addEventListener('mouseover', function() {
