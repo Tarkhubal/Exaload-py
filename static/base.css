@@ -155,14 +155,6 @@ main #content {
     align-items: center;
 }
 
-#profil-other-buttons a {
-    margin: 0 20px;
-    color: #f8f8ff;
-    background-color: rgb(117 117 117 / 36%);
-    padding: 15px;
-    border-radius: 12px;
-}
-
 .stat-item * {
     margin: 0;
     padding: 0;
@@ -583,7 +575,7 @@ footer ul li a:hover {
     cursor: pointer;
     height: -webkit-fill-available;
     width: fit-content;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(117 117 117 / 36%);
     padding: 0px 5px;
     margin: 5px 10px;
     border-radius: 5px;
@@ -591,7 +583,7 @@ footer ul li a:hover {
 }
 
 .logocontainer:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.336);
 }
 
 .navlogo {
@@ -626,19 +618,21 @@ p {
     margin-bottom: 10px;
 }
 
-button {
-    background-color: #00b0e8;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
+
+.button {
+    margin: 0 20px;
+    color: #f8f8ff;
+    background-color: rgb(117 117 117 / 36%);
+    padding: 15px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+    text-underline-offset: 5px;
+    text-decoration: underline dotted rgba(255, 255, 255, 0.336);
 }
 
-button:hover {
-    background-color: #0094c5;
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.336);
 }
 
 
