@@ -14,19 +14,25 @@
     <li class="icon"><a href="#"><img src="/static/assets/logo.png" alt="Nouveautés"></a></li>
 {% endblock %}
 
+{% block insidehtml%}
+<div id="movie-previewer">
+    <div id="film-info">
+        <h2>Titre du film</h2>
+        <p>Réalisateur: Nom du réalisateur</p>
+        <p>Plot: Description du film</p>
+    </div>
+    <video id="film-preview" width="50%" height="400" controls>
+        <source src="film.mp4" type="video/mp4" />
+        Votre navigateur ne prend pas en charge les vidéos HTML5.
+    </video>
+</div>
+{% endblock %}
+
+
+
 {% block content %}
+
     <div class="main">
-        <div id="movie-previewer">
-            <div id="film-info">
-                <h2>Titre du film</h2>
-                <p>Réalisateur: Nom du réalisateur</p>
-                <p>Plot: Description du film</p>
-            </div>
-            <video id="film-preview" width="50%" height="400" controls>
-                <source src="film.mp4" type="video/mp4">
-                Votre navigateur ne prend pas en charge les vidéos HTML5.
-            </video>
-        </div>
 
         <section class="banner" onclick="window.location.href='/movies'">
             <img src="static/assets/img/justice_league_movie_banner_poster_by_arkhamnatic-dbir20a.png" alt="Bannière promotionnelle">

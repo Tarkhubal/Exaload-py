@@ -107,19 +107,19 @@
 
 
 #movie-previewer {
-    top: 60px;
-    margin-left: -20px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+    background-color: #333333d5;
+    color: #fff;
     padding: 20px;
+    position: fixed;
     display: flex;
     visibility: hidden;
     opacity: 0;
     z-index: 99;
     transition: visibility 0.3s ease-in-out,
-        opacity 0.3s ease-in-out;
-    position: sticky;
+        opacity 0.3s ease-in-out,
+        top 0.3s ease-in-out;
 }
+
 
 #movie-previewer.active {
     transition: visibility 0.3s ease-in-out,
