@@ -220,7 +220,7 @@ def hack_card_game():
 @app.route('/movies')
 @login_required
 def _movies():
-    return render_template('connected/movies.html', title="Films")
+    return render_template('connected/movies.html', title="Films", scroll_bar_gradient=get_scrollbar_gradient(current_user.background))
 
 
 
