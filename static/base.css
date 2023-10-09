@@ -20,9 +20,9 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: 'Colombia', sans-serif;
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
     color: white;
-    font-weight: bolder;
     font-size: 30px;
     overflow-x: hidden;
 }
@@ -214,7 +214,7 @@ main #content {
 
 .content{
     padding: 20px;
-    text-align: right;
+    text-indent: 40px;
     color: #fffffa;
     line-height: 1.6;
 }
@@ -236,6 +236,8 @@ main #content {
     font-size: 19px;
     letter-spacing: 0.1em;
 }
+
+
 
 .content p {
     font-size: 16px;
@@ -451,7 +453,7 @@ main #content {
 nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 25px;
+    font-size: 21px;
     transition: color 0.3s ease-in-out;
 }
 
@@ -786,6 +788,9 @@ footer ul li a:hover {
     margin: 5px 0;
 }
 
+.dropdown-content ul li a {
+    font-size: 18px;
+}
 
 
 #exaloadlogo {
@@ -824,21 +829,25 @@ footer ul li a:hover {
 h1 {
     font-size: 60px;
     margin-bottom: 10px;
+    font-weight: 500;
 }
 
 h2 {
     font-size: 45px;
     margin-bottom: 10px;
+    font-weight: 500;
 }
 
 h3 {
     font-size: 35px;
     margin-bottom: 10px;
+    font-weight: 500;
 }
 
 p {
     font-size: 30px;
     margin-bottom: 10px;
+    font-weight: 400;
 }
 
 
