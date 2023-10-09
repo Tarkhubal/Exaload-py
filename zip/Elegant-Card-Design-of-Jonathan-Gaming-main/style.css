@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #d6e9ec;
+}
+
+.card{
+    position: relative;
+    width: 350px;
+    height: 420px;
+    /* background: red; */
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.picture{
+    position: absolute;
+    top: 30%;
+    left: -18%;
+    content: '';
+    width: 130px;
+    height: 130px;
+    filter: grayscale(0.1) contrast(1) saturate(0.6);
+    border-radius: 50%;
+    border: 10px solid #cee6e9;
+    z-index: 9999;
+}
+
+.picture img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid #052629;
+    transition: 0.4s;
+}
+
+.picture img:hover{
+    scale: 105%;
+}
+
+.card .top{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+}
+
+.card .top video{
+    width: 100%;
+    height:  200px;
+    border-radius: 20px;
+    mix-blend-mode: multiply;
+    border-top: 2px solid #44a1a0;
+}
+
+.card .top::before{
+    position: absolute;
+    top: 53.7%;
+    left: -1px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-bottom-left-radius: 20px ;
+    box-shadow: -5px 5px 0 #d6e9ec;
+    z-index: 999;
+}
+
+
+.card .bottom{
+    position: relative;
+    top: 0;
+    left: -10px;
+    width: 320px;
+    height: 210px;
+    background: #052629;
+    border-radius: 15px;
+}
+
+.content{
+    padding: 20px;
+    text-align: right;
+    color: #fffffa;
+    line-height: 1.6;
+}
+
+.content h1{
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 900;
+    color: #44a1a0;
+    text-shadow: 2px 1px 0px rgba(27, 62, 62, 1);
+}
+
+.content h3{
+    letter-spacing: 0.1em;
+}
+
+.stars{
+    position: relative;
+    top: -50%;
+    left: -43%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999;
+    gap: 20px;
+    color: #fff;
+    font-size: 25px;
+}
+
+.stars i{
+    transition: 0.3s;
+}
+
+.stars i:hover{
+    scale: 105%;
+    color: #44a1a0;
+}
+
+
+
+.card .bottom::after{
+    position: absolute;
+    top: 21%;
+    left: -1px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px ;
+    box-shadow: -6px -6px 0 #d6e9ec;
+}
+
+.btn{
+    position: absolute;
+    bottom: -12%;
+    left: 25%;
+    display: inline-block;
+    padding: 10px 30px;
+    background: #44a1a0;
+    border-radius: 25px;
+    border: 10px solid #052629;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.5s;
+    font-weight: 600;
+}
+
+.btn:hover{
+    scale: 110%;
+    background: #fffffa;
+    color: #44a1a0;
+}
+
+.btn::before{
+    position: absolute;
+    bottom: -4px;
+    left: -25px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px ;
+    box-shadow: 6px -6px 0 #052629;
+}
+
+.btn::after{
+    position: absolute;
+    bottom: -4px;
+    right: -25px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px ;
+    box-shadow: -6px -6px 0 #052629;
+}

@@ -4,6 +4,7 @@ let profilPreview = document.getElementById('profil-preview');
 
 profilButton.addEventListener('click', function () {
     profilPreview.classList.toggle('active');
+    profilButton.classList.toggle('active');
 });
 
 
