@@ -1,4 +1,4 @@
-let profilButton = document.getElementById('profil');
+let profilButton = document.getElementById('profil-img');
 let profilPreview = document.getElementById('profil-preview');
 
 

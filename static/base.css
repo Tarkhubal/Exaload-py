@@ -40,11 +40,15 @@ main #content {
     z-index: 1000;
     border-radius: 10px;
     cursor: pointer;
-    transition: visibility 0.3s ease-in-out,
-        opacity 0.3s ease-in-out;
+    background-image: url("/static/assets/close.png");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
 }
 
 #profil img {
+    transition: visibility 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -134,12 +138,12 @@ main #content {
     }
 }
 
-#profil {
+#profil img {
     opacity: 1;
     animation: profil-animate 0.3s ease-in-out;
 }
 
-#profil.active {
+#profil img.active {
     opacity: 0;
     animation: profil-animate-reverse 0.3s ease-in-out;
 }
@@ -156,8 +160,9 @@ main #content {
     height: 130px;
     filter: grayscale(0.1) contrast(1) saturate(0.6);
     border-radius: 50%;
-    border: 10px solid #052629;
+    border: 10px solid #2f3339;
     z-index: 9999;
+    animation: filter 0.3s ease-in-out;
 }
 
 .picture img{
@@ -166,8 +171,12 @@ main #content {
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
-    border: 2px solid #052629;
+    border: 2px solid #2f3339;
     transition: 0.4s;
+}
+
+.picture:hover {
+    filter: none;
 }
 
 .picture img:hover{
@@ -198,8 +207,8 @@ main #content {
     top: 0;
     left: -10px;
     width: 320px;
-    height: 210px;
-    background: #052629;
+    height: 310px;
+    background: #2f3339;
     border-radius: 15px;
 }
 
@@ -249,6 +258,7 @@ main #content {
 
 .stars i{
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .stars i:hover{
@@ -260,13 +270,14 @@ main #content {
 
 .btn{
     position: absolute;
-    bottom: -12%;
-    left: 25%;
+    bottom: -7%;
+    left: 27%;
+    font-size: 18px;
     display: inline-block;
     padding: 10px 30px;
     background: #44a1a0;
     border-radius: 25px;
-    border: 10px solid #052629;
+    border: 10px solid #2f3339;
     text-align: center;
     text-decoration: none;
     color: #fff;
@@ -289,7 +300,7 @@ main #content {
     height: 20px;
     background: transparent;
     border-top-right-radius: 20px ;
-    box-shadow: 6px -6px 0 #052629;
+    box-shadow: 6px -6px 0 #2f3339;
 }
 
 .btn::after{
@@ -301,7 +312,7 @@ main #content {
     height: 20px;
     background: transparent;
     border-top-left-radius: 20px ;
-    box-shadow: -6px -6px 0 #052629;
+    box-shadow: -6px -6px 0 #2f3339;
 }
 
 
