@@ -15,3 +15,5 @@ Ou si le programme ne se lance pas :
 py -m pip install -r requirements.txt
 py main.py
 ```
+
+License : all rights reserved
