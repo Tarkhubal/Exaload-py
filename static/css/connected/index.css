@@ -303,12 +303,12 @@ body span {
 }
 
 #app .menu-section .menu-section-title i {
-    font-size: 1em;
+    font-size: 0.75em;
 }
 
 #app .menu-section .menu-section-title .menu-section-title-text {
     color: rgba(255, 255, 255, 0.8);
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
 #app .menu-section .menu-section-content {
@@ -604,7 +604,7 @@ body span {
 #app #movies-section .menu-section-content .movie-card .movie-card-content i {
     bottom: 0px;
     color: whitesmoke;
-    font-size: 5em;
+    font-size: 2.5em;
     padding: 30px;
     position: absolute;
     right: 0px;
