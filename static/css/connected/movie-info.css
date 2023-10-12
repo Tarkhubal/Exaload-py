@@ -1,0 +1,13 @@
+#content {
+	display: flex;
+	padding-left: 60px;
+}
+
+#left-side,
+#right-side {
+	max-width: 49%;
+}
+
+#right-side img {
+	width: 100%;
+}
