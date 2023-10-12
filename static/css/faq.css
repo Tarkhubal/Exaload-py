@@ -72,7 +72,7 @@
 }
 
 .accordion button[aria-expanded=true] .accordion-title {
-    color: black;
+    color: white;
 }
 
 .accordion button[aria-expanded=true] .accordion-title,
