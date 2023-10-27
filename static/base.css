@@ -636,7 +636,6 @@ footer ul li a:hover {
     background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
     width: 60px;
-    margin-top: 60px;
     position: fixed;
     top: 0;
     left: 0;
@@ -676,7 +675,7 @@ footer ul li a:hover {
 
 .subsidebar li {
     height: calc(30px + 20px + 5px);
-    margin: 0 10px;
+    margin: 3px 10px;
     display: flex;
     align-items: center;
 }
