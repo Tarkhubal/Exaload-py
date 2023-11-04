@@ -162,10 +162,17 @@ body span {
 
 #app .info .time {
     color: whitesmoke;
-    font-size: 4em;
+    font-size: 3.5em;
     height: 80px;
     line-height: 80px;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+#app .info .time .clock-minus {
+    font-size: 0.5em;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 #app .info .weather {

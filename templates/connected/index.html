@@ -6,11 +6,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/connected/index.css') }}">
 {% endblock %}
 
-{% block scripts %}
-<script src="https://kit.fontawesome.com/1ee8f271b9.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/classnames/2.3.1/index.min.js"></script>
-{% endblock %}
-
 {% block content %}
 <div id="app" class="logged-in">
     <div id="app-menu">
@@ -19,8 +14,9 @@
                 <div id="app-menu-content-header">
                     <div class="app-menu-content-header-section">
                         <div id="app-menu-info" class="info">
-                            <span class="time">10:00</span>
+                            <span class="time" id="clock">10h00</span>
                             <span class="weather">
+                                -&nbsp;
                                 <span class="weather-temperature-value">34.442</span>
                                 <span class="weather-temperature-unit">EX</span>
                             </span>
@@ -297,4 +293,38 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://kit.fontawesome.com/1ee8f271b9.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/classnames/2.3.1/index.min.js"></script>
+<script>
+    setInterval(showTime, 1000);
+    function showTime() {
+        let time = new Date();
+        let hour = time.getHours();
+        let min = time.getMinutes();
+        let sec = time.getSeconds();
+        am_pm = "AM";
+
+        /* if (hour > 12) {
+            hour -= 12;
+            am_pm = "PM";
+        }
+        if (hour == 0) {
+            hr = 12;
+            am_pm = "AM";
+        } */
+
+        hour = hour < 10 ? "0" + hour : hour;
+        min = min < 10 ? "0" + min : min;
+        sec = sec < 10 ? "0" + sec : sec;
+
+        let currentTime = hour + ":"+ min + "<span class='clock-minus'>" + sec + "</span>";
+
+        document.getElementById("clock").innerHTML = currentTime;
+    }
+
+    showTime();
+</script>
 {% endblock %}
