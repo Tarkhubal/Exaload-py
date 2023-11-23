@@ -15,6 +15,8 @@
 \*-----------------------------------*/
 
 :root {
+    --blur: blur(5px);
+    --bg-color-default: #ffffff33;
 
     /**
      * colors
@@ -290,10 +292,11 @@ li {
     height: 100%;
     display: flex;
     border-radius: 12px;
-    background-color: #f0f0f033;
     flex-direction: column;
     justify-content: space-between;
     padding: 15px;
+    background-color: var(--bg-color-default);
+    backdrop-filter: var(--blur);
 }
 
 .movie-card:hover {
@@ -408,7 +411,7 @@ li {
 }
 
 .has-scrollbar::-webkit-scrollbar {
-    height: 8px;
+    height: 10px;
 }
 
 .has-scrollbar::-webkit-scrollbar-track {
@@ -429,8 +432,8 @@ li {
 
 
 /*-----------------------------------*\
-   * #HEADER
-  \*-----------------------------------*/
+  #HEADER
+\*-----------------------------------*/
 
 .header {
     position: fixed;
@@ -710,8 +713,8 @@ li {
 }
 
 .service-content {
-    background-color: #ffffff2f;
-    backdrop-filter: blur(10px);
+    background-color: var(--bg-color-default);
+    backdrop-filter: var(--blur);
     padding: 20px !important;
     border-radius: 15px;
 }
