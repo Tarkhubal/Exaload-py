@@ -1,0 +1,290 @@
+/*-----------------------------------*\
+ * #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+    --blur: blur(5px);
+    --bg-color-default: #ffffff33;
+
+    /**
+     * colors
+     */
+
+    --rich-black-fogra-29: hsl(225, 25%, 9%);
+    --rich-black-fogra-39: hsl(170, 21%, 5%);
+    --raisin-black: hsl(228, 13%, 15%);
+    --eerie-black: hsl(207, 19%, 11%);
+    --light-gray: hsl(0, 3%, 80%);
+    --gunmetal-1: hsl(229, 15%, 21%);
+    --gunmetal-2: hsl(216, 22%, 18%);
+    --gainsboro: hsl(0, 7%, 88%);
+    --citrine: hsl(57, 97%, 45%);
+    --xiketic: hsl(253, 21%, 13%);
+    --gray-x: hsl(0, 0%, 74%);
+    --white: hsl(0, 100%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --jet: hsl(0, 0%, 20%);
+    --bgrey: hsl(252, 19%, 41%);
+    --lavande: #ae49fb;
+
+    --main-color: var(--lavande);
+
+    /**
+     * typography
+     */
+
+    --ff-poppins: 'Poppins', sans-serif;
+
+    --fs-1: 36px;
+    --fs-2: 32px;
+    --fs-3: 30px;
+    --fs-4: 24px;
+    --fs-5: 20px;
+    --fs-6: 18px;
+    --fs-7: 16px;
+    --fs-8: 15px;
+    --fs-9: 14px;
+    --fs-10: 13px;
+    --fs-11: 12px;
+    --fs-12: 11px;
+
+    --fw-500: 500;
+    --fw-700: 700;
+
+    /**
+     * transition
+     */
+
+    --transition-1: 0.15s ease;
+    --transition-2: 0.25s ease-in;
+
+    /**
+     * spacing
+     */
+
+    --section-padding: 100px;
+
+    --semi-transparent-color: #31313180;
+    --semi-transparent-bg: linear-gradient(to right, #00000000, var(--semi-transparent-color), var(--semi-transparent-color), #00000000);
+}
+
+
+
+.btn {
+    color: var(--white);
+    font-size: var(--fs-11);
+    font-weight: var(--fw-700);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 30px;
+    border: 2px solid var(--main-color);
+    border-radius: 50px;
+    transition: var(--transition-1);
+}
+
+.btn:hover {
+    transform: translateY(-7px);
+}
+
+.btn>ion-icon {
+    font-size: 18px;
+}
+
+.btn-primary {
+    background: var(--rich-black-fogra-29);
+}
+
+.btn-primary:is(:hover, :focus) {
+    background: var(--main-color);
+    color: var(--xiketic);
+}
+
+
+/**
+   * MOVIE META
+   */
+
+.meta-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px 25px;
+    margin-bottom: 30px;
+}
+
+.badge-wrapper,
+.ganre-wrapper,
+.date-time {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px 10px;
+}
+
+.ganre-wrapper>a {
+    color: var(--gainsboro);
+    font-size: var(--fs-9);
+    font-weight: var(--fw-500);
+    transition: var(--transition-1);
+}
+
+.ganre-wrapper>a:is(:hover, :focus) {
+    color: var(--main-color);
+}
+
+.date-time {
+    gap: 15px;
+}
+
+.date-time>div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--gainsboro);
+    font-size: var(--fs-9);
+    font-weight: var(--fw-500);
+}
+
+.date-time ion-icon {
+    --ionicon-stroke-width: 50px;
+    color: var(--main-color);
+}
+
+
+/**
+ * BADGE
+ */
+
+   .badge {
+    color: var(--white);
+    font-size: var(--fs-12);
+    font-weight: var(--fw-700);
+    border: 2px solid transparent;
+    padding: 2px 10px;
+}
+
+.badge-fill {
+    background: var(--white);
+    color: var(--raisin-black);
+}
+
+.badge-outline {
+    border-color: var(--white);
+}
+
+
+
+
+
+
+/* Custom style items */
+
+.pd-10px,
+.pd-top-10px {
+    padding-top: 10px;
+}
+.pd-10px,
+.pd-right-10px {
+    padding-right: 10px;
+}
+.pd-10px,
+.pd-bottom-10px {
+    padding-bottom: 10px;
+}
+.pd-10px,
+.pd-left-10px {
+    padding-left: 10px;
+}
+
+.pd-20px,
+.pd-top-20px {
+    padding-top: 20px;
+}
+.pd-20px,
+.pd-right-20px {
+    padding-right: 20px;
+}
+.pd-20px,
+.pd-bottom-20px {
+    padding-bottom: 20px;
+}
+.pd-20px,
+.pd-left-20px {
+    padding-left: 20px;
+}
+
+
+
+.mg-10px,
+.mg-top-10px {
+    margin-top: 10px;
+}
+.mg-10px,
+.mg-right-10px {
+    margin-right: 10px;
+}
+.mg-10px,
+.mg-bottom-10px {
+    margin-bottom: 10px;
+}
+.mg-10px,
+.mg-left-10px {
+    margin-left: 10px;
+}
+
+.mg-20px,
+.mg-top-20px {
+    margin-top: 20px;
+}
+.mg-20px,
+.mg-right-20px {
+    margin-right: 20px;
+}
+.mg-20px,
+.mg-bottom-20px {
+    margin-bottom: 20px;
+}
+.mg-20px,
+.mg-left-20px {
+    margin-left: 20px;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-align-justify {
+    text-align: justify;
+}
+
+.text-decoration-underline {
+    text-decoration: underline;
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
+
+.text-transform-uppercase {
+    text-transform: uppercase;
+}
+
+.text-transform-lowercase {
+    text-transform: lowercase;
+}
+
+.text-transform-capitalize {
+    text-transform: capitalize;
+}

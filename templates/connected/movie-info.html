@@ -1,6 +1,10 @@
 {% extends "connected/base.html" %}
 
 {% block head %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/connected/movies.base.css" />
     <link rel="stylesheet" href="/static/css/connected/movie-info.css" />
 {% endblock %}
 
@@ -17,12 +21,61 @@
 
 
 {% block content %}
-	<div id="left-side">
-		<h1>The Last of Us</h1>
-		<p>ZIOZHGMOTIHZRL IEmoirejz tmpqerijm otzisejrmosytijeriegjerit mqzoijtmeo irtj mr eo mhpdoortd miqre spt oure myi urj tori gitrjhgjesb dr nmthn isyjdmr eijroyijrmsodjmroihjgdrmotiyhjrtoyhjrsij tiry jsoiyjmtorih meosi jrtomi yoisy oithjdofkhjdlfkxn gsrmeo i
-	</div>
-	<div id="right-side">
-		<img src="/static/assets/img/the-last-of-us-high.jpg" />
+<section class="hero" style="background: url(/static/assets/images/taken-3-movie-banner-8k-ob-2880x1800.jpg) no-repeat top center / cover;">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="h1 hero-title">Taken <strong>3</strong></h1>
+
+            <div class="meta-wrapper">
+                <div class="badge-wrapper">
+                    <div class="badge badge-fill">PG 18</div>
+
+                    <div class="badge badge-outline">HD</div>
+                </div>
+
+                <div class="ganre-wrapper">
+                    <a href="#">Romance</a>
+                    <a href="#">Drama</a>
+                </div>
+
+                <div class="date-time">
+                    <div>
+                        <ion-icon name="calendar-outline"></ion-icon>
+                        <time datetime="2024">2024</time>
+                    </div>
+
+                    <div>
+                        <ion-icon name="time-outline"></ion-icon>
+
+                        <time datetime="PT128M">128 min</time>
+                    </div>
+                </div>
+            </div>
+
+            <p class="service-text">
+                Accused of a ruthless murder he never committed or witnessed, Bryan Mills goes on the run and brings out his particular set of skills to find the true killer and clear his name.
+            </p>
+
+            <button class="btn btn-primary" onclick="window.location.href='/movies/000'">
+                <ion-icon name="play"></ion-icon>
+                <span>Regarder maintenant</span>
+            </button>
+        </div>
+    </div>
+</section>
+<section class="movie-infos-section">
+    <video controls>
+        <source src="/static/assets/videos/Taken 3 bande annonce.mp4" type="video/mp4" />
+        Your browser does not support the video tag. Change your browser !
+    </video>
+    <div class="movie-infos">
+        <img src="/static/assets/images/taken-3-affiche.jpg">
+        <div class="movie-infos-mains">
+            <p>Sorti le <strong>21 janvier 2034</strong></p>
+            <p>Réalisé par <strong>Olivier Megaton</strong></p>
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 
@@ -35,4 +88,9 @@
             <li><a href="#">Contact</a></li>
         </ul>
     </footer>
+{% endblock %}
+
+{% block scripts %}
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 {% endblock %}

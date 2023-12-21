@@ -163,3 +163,4 @@ cython_debug/
 # Custom
 .vscode/
 test.py
+exaload_v2.zip

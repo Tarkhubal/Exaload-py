@@ -120,7 +120,7 @@ def signup_post():
         flash('Email address already exists')
         return redirect("/signup")
     
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='scrypt'))
 
     # add the new user to the database
     db.session.add(new_user)
@@ -225,7 +225,7 @@ def _movies():
 @app.route('/movies/000')
 @login_required
 def _movies_id():
-    movie_name = "The Last of Us"
+    movie_name = "Taken 3"
     return render_template('connected/movie-info.html', title=movie_name, scroll_bar_gradient=get_scrollbar_gradient(current_user.background))
 
 

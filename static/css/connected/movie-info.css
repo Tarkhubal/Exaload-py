@@ -1,13 +1,153 @@
-#content {
-	display: flex;
-	padding-left: 60px;
+.hero {
+    background-size: cover;
+    background-position: center;
+    min-height: 750px;
+    height: 70vh;
+    max-height: 1000px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-block: var(--section-padding);
 }
 
-#left-side,
-#right-side {
-	max-width: 49%;
-}
-
-#right-side img {
+.hero-content {
+    margin-top: 60px;
+	backdrop-filter: blur(10px);
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 30px;
+	border-radius: 10px;
+	max-width: 400px;
 	width: 100%;
 }
+
+.hero-subtitle {
+    color: var(--main-color);
+    font-size: var(--fs-4);
+    font-weight: var(--fw-700);
+    margin-bottom: 10px;
+}
+
+.hero-title {
+    margin-bottom: 30px;
+}
+
+.hero-title>strong {
+    color: var(--main-color);
+}
+
+.section-subtitle {
+    color: var(--main-color);
+    font-size: var(--fs-11);
+    font-weight: var(--fw-500);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.content .h1,
+.content .h2,
+.content .h3 {
+    color: var(--white);
+    line-height: 1.2;
+}
+
+.content .h1 {
+    font-size: var(--fs-1);
+}
+
+
+.movie-infos-section {
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap
+}
+
+.movie-infos-section video {
+	border-radius: 10px;
+	max-width: 70vw;
+	width: 100%;
+	height: auto;
+}
+
+.movie-infos-section .movie-infos {
+	margin-left: 20px;
+	max-width: 30vw;
+	width: 100%;
+	height: auto;
+	margin-top: 20px;
+	display: flex;
+}
+
+.movie-infos-section .movie-infos img {
+	border-radius: 10px;
+	height: 300px;
+}
+
+.movie-infos-section .movie-infos .movie-infos-mains {
+	margin-left: 20px;
+}
+
+.movie-infos-section .movie-infos .movie-infos-mains p {
+	color: var(--white);
+	font-size: var(--fs-7);
+	margin-bottom: 10px;
+}
+
+
+@media (min-width: 550px) {
+    .hero {
+        min-height: unset;
+    }
+
+    .hero-content {
+        margin-top: 20px;
+    }
+
+    .container {
+        max-width: 540px;
+        margin-inline: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-content {
+        margin-top: 90px;
+    }
+
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero {
+        background-position: right;
+    }
+
+    .hero .container {
+        width: 950px;
+    }
+
+    .hero-content {
+        margin-top: 100px;
+        max-width: 600px;
+    }
+	
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero .container {
+        width: 1620px;
+    }
+	
+    .container {
+        max-width: 1620px;
+    }
+}
+
+
