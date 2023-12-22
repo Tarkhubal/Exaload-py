@@ -21,7 +21,17 @@
 
 
 {% block content %}
-<section class="hero" style="background: url(/static/assets/images/taken-3-movie-banner-8k-ob-2880x1800.jpg) no-repeat top center / cover;">
+<section class="hero"> <!-- style="background: url(/static/assets/images/taken-3-movie-banner-8k-ob-2880x1800.jpg) no-repeat top center / cover;" -->
+    <div class="video-container">
+        <video id="video">
+            <source src="/static/assets/videos/Taken 3 bande annonce.mp4" type="video/mp4" />
+            Your browser does not support the video tag. Change your browser !
+        </video>
+        <div class="playButton" id="playButton">
+            <ion-icon name="play"></ion-icon>
+        </div>
+    </div>
+
     <div class="container">
         <div class="hero-content">
             <h1 class="h1 hero-title">Taken <strong>3</strong></h1>
@@ -64,15 +74,102 @@
     </div>
 </section>
 <section class="movie-infos-section">
-    <video controls>
-        <source src="/static/assets/videos/Taken 3 bande annonce.mp4" type="video/mp4" />
-        Your browser does not support the video tag. Change your browser !
-    </video>
-    <div class="movie-infos">
-        <img src="/static/assets/images/taken-3-affiche.jpg">
-        <div class="movie-infos-mains">
-            <p>Sorti le <strong>21 janvier 2034</strong></p>
-            <p>Réalisé par <strong>Olivier Megaton</strong></p>
+    <div class="movie-infos-div">
+        <video controls>
+            <source src="/static/assets/videos/Taken 3 bande annonce.mp4" type="video/mp4" />
+            Your browser does not support the video tag. Change your browser !
+        </video>
+        <div class="movie-infos">
+            <div class="movie-plot">
+                <div class="synopsis">
+                    L’ex-agent spécial Bryan Mills voit son retour à une vie tranquille bouleversé lorsqu’il est
+                    accusé à tort du meurtre de son ex-femme, chez lui, à Los Angeles. En fuite et traqué par
+                    l’inspecteur Dotzler, Mills va devoir employer ses compétences particulières une dernière
+                    fois pour trouver le véritable coupable, prouver son innocence et protéger la seule personne
+                    qui compte désormais pour lui – sa fille.
+                </div>
+                <div class="distribution">
+                    <div class="distributors">
+                        <div class="item">
+                            <h3>Distributeurs</h3>
+                            <ul>
+                                <li>20th Century Fox</li>
+                                <li>EuropaCorp</li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <h3>Production</h3>
+                            <ul>
+                                <li>EuropaCorp</li>
+                                <li>M6 Films</li>
+                                <li>Canal+</li>
+                                <li>Ciné+</li>
+                                <li>Grive Productions</li>
+                                <li>Canal+ España</li>
+                                <li>Canal+ Polska</li>
+                                <li>Canal+ France</li>
+                                <li>Canal+ Russia</li>
+                                <li>Ciné+</li>
+                                <li>EuropaCorp</li>
+                                <li>Grive Productions</li>
+                                <li>M6 Films</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="actors">
+                        <h3>Acteurs principaux</h3>
+                        <div class="actors-profiles">
+                            <div class="actor-profil">
+                                <img src="/static/assets/images/actors/1.jpg" />
+                                <p>Liam Neeson</p>
+                            </div>
+                            <div class="actor-profil">
+                                <img src="/static/assets/images/actors/2.jpg" />
+                                <p>Forest Whitaker</p>
+                            </div>
+                            <div class="actor-profil">
+                                <img src="/static/assets/images/actors/3.jpg" />
+                                <p>Maggie Grace</p>
+                            </div>
+                            <div class="actor-profil">
+                                <img src="/static/assets/images/actors/7.jpg" />
+                                <p>Leland Orser</p>
+                            </div>
+                            <div class="actor-profil">
+                                <img src="/static/assets/images/actors/8.jpg" />
+                                <p>Jon Gries</p>
+                            </div>
+                            <div class="actor-profil">
+                                <img src="/static/assets/images/actors/9.jpg" />
+                                <p>David Warshofsky</p>
+                            </div>
+                            <div class="actor-profil">
+                                <img src="/static/assets/images/actors/10.jpg" />
+                                <p>Don Harvey</p>
+                            </div>
+                            <div class="actor-profil">
+                                <img src="/static/assets/images/actors/4.jpg" />
+                                <p>Famke Janssen</p>
+                            </div>
+                            <div class="actor-profil">
+                                <img src="/static/assets/images/actors/5.jpg" />
+                                <p>Dougray Scott</p>
+                            </div>
+                            <div class="actor-profil">
+                                <img src="/static/assets/images/actors/6.jpg" />
+                                <p>Sam Spruell</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="affiche">
+                <img src="/static/assets/images/taken-3-affiche.jpg">
+                <div class="movie-infos-mains">
+                    <p>Sorti le <strong>21 janvier 2034</strong></p>
+                    <p>Réalisé par <strong>Olivier Megaton</strong></p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -93,4 +190,33 @@
 {% block scripts %}
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        videoElem = document.getElementById("video");
+        let startPlayPromise = videoElem.play();
+
+        if (startPlayPromise !== undefined) {
+        startPlayPromise
+            .then(() => {
+            // Start whatever you need to do only after playback
+            // has begun.
+            })
+            .catch((error) => {
+            if (error.name === "NotAllowedError") {
+                showPlayButton(videoElem);
+            } else {
+                // Handle a load or playback error
+            }
+            });
+        }
+
+        function showPlayButton(videoElem) {
+            let playButton = document.getElementById("playButton");
+            playButton.style.display = "block";
+
+            playButton.addEventListener("click", function (event) {
+                videoElem.play();
+            });
+        }
+
+    </script>
 {% endblock %}

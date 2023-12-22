@@ -10,6 +10,29 @@
     padding-block: var(--section-padding);
 }
 
+
+/* Set the .hero video as the background of the .hero div */
+.hero .video-container video {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    width: 97%;
+    /* height: 100%; */
+    object-fit: revert;
+    z-index: -1;
+}
+
+.hero .container {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--section-padding);
+}
+
+
+
+
+
 .hero-content {
     margin-top: 60px;
 	backdrop-filter: blur(10px);
@@ -56,40 +79,146 @@
     font-size: var(--fs-1);
 }
 
-
 .movie-infos-section {
+    display: flex;
+    justify-content: center;
+}
+
+.movie-infos-div {
 	margin-top: 40px;
 	display: flex;
 	justify-content: center;
-	flex-wrap: wrap
+	flex-wrap: wrap;
+    max-width: 80%;
 }
 
-.movie-infos-section video {
+.movie-infos-div video {
 	border-radius: 10px;
-	max-width: 70vw;
+	max-width: 100%;
 	width: 100%;
 	height: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
 }
 
-.movie-infos-section .movie-infos {
+.movie-infos-div .movie-infos {
 	margin-left: 20px;
-	max-width: 30vw;
+	max-width: 80%;
 	width: 100%;
 	height: auto;
 	margin-top: 20px;
 	display: flex;
+    backdrop-filter: blur(10px);
+    background-color: rgba(118, 118, 118, 0.371);
+    border-radius: 10px;
 }
 
-.movie-infos-section .movie-infos img {
+.movie-infos-div .movie-infos > * {
+    padding: 20px;
+}
+
+.movie-infos-div .movie-infos .movie-plot .synopsis {
+    color: var(--white);
+    font-size: var(--fs-7);
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.movie-infos-div .movie-infos .movie-plot .distribution {
+    color: var(--white);
+    font-size: var(--fs-7);
+    line-height: 1.5;
+    text-align: justify;
+    margin-top: 20px;
+    display: flex;
+}
+
+.movie-infos-div .movie-infos .movie-plot .distribution > * {
+    padding: 0 20px;
+}
+
+.movie-infos-div .movie-infos .movie-plot .distribution .actors {
+    max-width: 70%;
+}
+
+.movie-infos-div .movie-infos .movie-plot .distribution .distributors {
+    width: 30%
+}
+
+.movie-infos-div .movie-infos .movie-plot .distribution .distributors > .item {
+    margin-top: 20px;
+}
+
+.movie-infos-div .movie-infos .movie-plot .distribution .distributors > .item:first-child {
+    margin-top: 0;
+}
+
+.movie-infos-div .movie-infos .movie-plot .distribution .distributors h3,
+.movie-infos-div .movie-infos .movie-plot .distribution .actors h3 {
+    color: var(--white);
+    font-size: var(--fs-5);
+    line-height: 1.5;
+    text-align: justify;
+    border-bottom: 1px solid var(--white);
+}
+
+.movie-infos-div .movie-infos .movie-plot .distribution .distributors ul,
+.movie-infos-div .movie-infos .movie-plot .distribution .actors ul {
+    color: var(--white);
+    font-size: var(--fs-7);
+    line-height: 1.5;
+    text-align: justify;
+    list-style: none;
+}
+
+.movie-infos-div .movie-infos .movie-plot .distribution .actors .actors-profiles {
+    display: flex;
+    max-width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.movie-infos-div .movie-infos .movie-plot .distribution .actors .actors-profiles > .actor-profil {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 10px 0;
+    flex: auto;
+    width: 50%;
+    max-width: 50%;
+}
+
+.movie-infos-div .movie-infos .movie-plot .distribution .actors .actors-profiles .actor-profil:last-child {
+    margin-right: 0;
+}
+
+.movie-infos-div .movie-infos .movie-plot .distribution .actors .actors-profiles .actor-profil p {
+    color: var(--white);
+    font-size: var(--fs-7);
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+
+.movie-infos-div .movie-infos .movie-plot .distribution .actors .actors-profiles .actor-profil img {
+    border-radius: 10px;
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.movie-infos-div .movie-infos .affiche img {
 	border-radius: 10px;
 	height: 300px;
 }
 
-.movie-infos-section .movie-infos .movie-infos-mains {
+.movie-infos-div .movie-infos .affiche .movie-infos-mains {
 	margin-left: 20px;
 }
 
-.movie-infos-section .movie-infos .movie-infos-mains p {
+.movie-infos-div .movie-infos .affiche .movie-infos-mains p {
 	color: var(--white);
 	font-size: var(--fs-7);
 	margin-bottom: 10px;
@@ -142,11 +271,11 @@
 
 @media (min-width: 1200px) {
     .hero .container {
-        width: 1620px;
+        width: 1920px;
     }
 	
     .container {
-        max-width: 1620px;
+        max-width: 1920px;
     }
 }
 
