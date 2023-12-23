@@ -223,7 +223,7 @@ def _movies():
     return render_template('connected/movies.html', title="Films", scroll_bar_gradient=get_scrollbar_gradient(current_user.background))
 
 @app.route('/movies/000')
-@login_required
+# @login_required
 def _movies_id():
     movie_name = "Taken 3"
     return render_template('connected/movie-info.html', title=movie_name, scroll_bar_gradient=get_scrollbar_gradient(current_user.background))

@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container fade-in-out">
         <div class="hero-content">
             <h1 class="h1 hero-title">Taken <strong>3</strong></h1>
 
@@ -75,10 +75,10 @@
 </section>
 <section class="movie-infos-section">
     <div class="movie-infos-div">
-        <video controls>
+        <!-- <video controls>
             <source src="/static/assets/videos/Taken 3 bande annonce.mp4" type="video/mp4" />
             Your browser does not support the video tag. Change your browser !
-        </video>
+        </video> -->
         <div class="movie-infos">
             <div class="movie-plot">
                 <div class="synopsis">
@@ -209,12 +209,50 @@
             });
         }
 
+        let hero = document.querySelector(".hero").querySelector(".container");
+
+        function unShowHero(with_timeout = true) {
+            hero.style.removeProperty("opacity");
+            if (with_timeout) {
+                setTimeout(() => {
+                    hero.classList.toggle('hidden');
+                }, 550);
+            } else {
+                hero.classList.toggle('hidden');
+            }
+
+            setTimeout(() => {
+                hero.style.display = "none";
+            }, 1550);
+        }
+
+        function showHero() {
+            hero.style.opacity = 0;
+            hero.style.display = "block";
+            hero.classList.toggle('hidden');
+
+            setTimeout(() => {
+                hero.style.opacity = 1;
+            }, 550);
+        }
+
         function showPlayButton(videoElem) {
             let playButton = document.getElementById("playButton");
-            playButton.style.display = "block";
 
             playButton.addEventListener("click", function (event) {
-                videoElem.play();
+                if (videoElem.paused) {
+                    videoElem.play();
+                    unShowHero();
+                } else if (videoElem.played) {
+                    videoElem.pause();
+                    showHero();
+                }
+
+                if (videoElem.ended) {
+                    videoElem.currentTime = 0;
+                    videoElem.play();
+                    unShowHero();
+                }
             });
         }
 

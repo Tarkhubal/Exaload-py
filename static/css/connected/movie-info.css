@@ -14,7 +14,7 @@
 /* Set the .hero video as the background of the .hero div */
 .hero .video-container video {
     position: absolute;
-    top: 0;
+    top: 4%;
     left: 60px;
     width: 97%;
     /* height: 100%; */
@@ -27,14 +27,64 @@
     max-width: 100%;
     margin-inline: auto;
     padding-inline: var(--section-padding);
+    transition: opacity 0.5s ease-in-out;
+    display: block;
+}
+
+.hero .fade-in-out {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+  
+.hero .fade-in-out.hidden {
+    opacity: 0;
+}
+  
+
+.hero .video-container .playButton {
+    position: absolute;
+    top: 40vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    z-index: 10;
+}
+
+.hero .video-container .playButton ion-icon {
+    font-size: 50px;
+    color: var(--white);
+    top: 50%;
+    left: 50%;
+}
+
+/* Mask the hero-content and the playButton when the video is not hovered */
+
+.hero:hover .video-container .playButton {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.hero .video-container .playButton {
+    opacity: 0;
+}
+
+.hero .video-container:hover .playButton {
+    transform: translate(-50%, -50%) scale(1.2);
 }
 
 
 
 
-
 .hero-content {
-    margin-top: 60px;
 	backdrop-filter: blur(10px);
 	background-color: rgba(0, 0, 0, 0.5);
 	padding: 30px;
@@ -230,10 +280,6 @@
         min-height: unset;
     }
 
-    .hero-content {
-        margin-top: 20px;
-    }
-
     .container {
         max-width: 540px;
         margin-inline: auto;
@@ -241,10 +287,6 @@
 }
 
 @media (min-width: 768px) {
-    .hero-content {
-        margin-top: 90px;
-    }
-
     .container {
         max-width: 720px;
     }
@@ -260,7 +302,6 @@
     }
 
     .hero-content {
-        margin-top: 100px;
         max-width: 600px;
     }
 	
