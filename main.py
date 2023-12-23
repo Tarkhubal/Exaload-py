@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, redirect, url_for, request, flash, make_response, send_from_directory, render_template_string
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
@@ -120,7 +121,16 @@ def signup_post():
         flash('Email address already exists')
         return redirect("/signup")
     
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='scrypt'))
+    if os.name == "nt":
+        new_user = User(email=email, name=name, password=generate_password_hash(password, method='scrypt'))
+    else:
+        try:
+            new_user = User(email=email, name=name, password=generate_password_hash(password, method='pbkdf2:sha256'))
+        except:
+            try:
+                new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+            except:
+                new_user = User(email=email, name=name, password=generate_password_hash(password, method='scrypt'))
 
     # add the new user to the database
     db.session.add(new_user)
