@@ -22,7 +22,7 @@
 
 {% block content %}
 <section class="hero"> <!-- style="background: url(/static/assets/images/taken-3-movie-banner-8k-ob-2880x1800.jpg) no-repeat top center / cover;" -->
-    <div class="video-container">
+    <div class="video-container" onclick=ShowingOrUnshowing()>
         <video id="video">
             <source src="/static/assets/videos/Taken 3 bande annonce.mp4" type="video/mp4" />
             Your browser does not support the video tag. Change your browser !
@@ -202,7 +202,7 @@
             })
             .catch((error) => {
             if (error.name === "NotAllowedError") {
-                showPlayButton(videoElem);
+            
             } else {
                 // Handle a load or playback error
             }
@@ -236,23 +236,27 @@
             }, 550);
         }
 
+        function ShowingOrUnshowing() {
+            if (videoElem.paused) {
+                videoElem.play();
+                unShowHero();
+            } else if (videoElem.played) {
+                videoElem.pause();
+                showHero();
+            }
+
+            if (videoElem.ended) {
+                videoElem.currentTime = 0;
+                videoElem.play();
+                unShowHero();
+            }
+        }
+
         function showPlayButton(videoElem) {
             let playButton = document.getElementById("playButton");
 
             playButton.addEventListener("click", function (event) {
-                if (videoElem.paused) {
-                    videoElem.play();
-                    unShowHero();
-                } else if (videoElem.played) {
-                    videoElem.pause();
-                    showHero();
-                }
-
-                if (videoElem.ended) {
-                    videoElem.currentTime = 0;
-                    videoElem.play();
-                    unShowHero();
-                }
+                ShowingOrUnshowing()
             });
         }
 
