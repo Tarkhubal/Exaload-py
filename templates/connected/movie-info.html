@@ -210,6 +210,8 @@
         }
 
         let hero = document.querySelector(".hero").querySelector(".container");
+        let playButton = document.getElementById("playButton");
+        
 
         function unShowHero(with_timeout = true) {
             hero.style.removeProperty("opacity");
@@ -251,14 +253,7 @@
                 unShowHero();
             }
         }
-
-        function showPlayButton(videoElem) {
-            let playButton = document.getElementById("playButton");
-
-            playButton.addEventListener("click", function (event) {
-                ShowingOrUnshowing()
-            });
-        }
+    
 
     </script>
 {% endblock %}
