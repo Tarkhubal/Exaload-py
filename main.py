@@ -239,6 +239,18 @@ def _movies_id():
     return render_template('connected/movie-info.html', title=movie_name, scroll_bar_gradient=get_scrollbar_gradient(current_user.background))
 
 
+
+
+
+
+
+# ---------------- Creator Dashboard ----------------
+@app.route('/creators')
+@login_required
+def _index_creators():
+    return render_template('connected/creator/index.html', background=current_user.background)
+
+
 # @app.route('/signup', methods=['POST'])
 # def _signup_post():
 #     email = request.form.get('email')
