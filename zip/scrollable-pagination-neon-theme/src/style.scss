@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$primary: #00121B;
+$secondary: #80FF80;
+$complementary: #7FFFD4;
+$accent: #eb3461;
+$dark: #000;
+$font: 'Cairo', sans-serif;
+$font-scale: 0.390625vw;
+$button-width: 4rem;
+$row-height: 2rem;
+
+@function getFont($unit) {
+	@return calc(#{$font-scale} + #{$unit});
+}
+
+@mixin r-flex {
+	position: relative;
+	display: flex;
+}
+
+@mixin a-flex {
+	position: absolute;
+	display: flex;
+}
+
+body {
+	@include r-flex;
+
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+	background: linear-gradient($primary, darken($primary, 5%));
+	overflow: hidden;
+	font-family: $font;
+}
+
+.d-flex { display: flex; }
+.row { flex-direction: row; }
+.flex-fill { flex: 1 1 auto; width: 100%; }
+.justify-content-center { justify-content: center; }
+.justify-content-start { justify-content: flex-start; }
+.justify-content-end { justify-content: flex-end; }
+.align-items-center { align-items: center; }
+.align-items-start { align-items: flex-start; }
+.align-items-end { align-items: flex-end; }
+
+@property --angle {
+	syntax: "<angle>";
+	inherits: false;
+	initial-value: 0turn;
+}
+
+@keyframes conic-rotate {
+	to {
+		--angle: 1turn;
+	}
+}
+
+.table-container {
+	@include r-flex;
+	
+	width: 85vw;
+	height: calc(((var(--data-limit) + 1) * 2rem) + 10rem);
+	transform-style: preserve-3d;
+	box-shadow: inset 0 -.5rem 1rem rgba($primary, .5), inset 0 0 1rem rgba($complementary, .3);
+	border: 2px solid rgba($complementary, .5);
+	border-radius: 1rem;
+	flex-direction: column;
+
+	&::before {
+		@include a-flex;
+
+		content: '';
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: conic-gradient(from var(--angle), $secondary, rgba($complementary, .5), $secondary, royalblue, $secondary);
+		filter: blur(.5rem);
+		transform: translatez(-2px);
+		z-index: -2;
+		opacity: 0.99;
+		animation: conic-rotate 12s infinite linear;
+	}
+	
+	&::after {
+		@include a-flex;
+		
+		content: '';
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: rgba($primary, .95);
+		transform: translatez(-1px);
+		z-index: -1;
+		border-radius: inherit;
+	}
+}
+
+.table {
+	@include r-flex;
+
+	width: 100%;
+	padding: 1rem 0 0 0;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-image: linear-gradient(90deg, transparent, rgba($secondary, .15), transparent);
+	-webkit-background-image: linear-gradient(90deg, transparent, rgba($secondary, .15), transparent);
+	overflow: hidden;
+	box-shadow: 0 .5rem 1rem rgba($dark, .1);
+
+	.table-row {
+		@include r-flex;
+		
+		flex-direction: row;
+		gap: inherit;
+		width: calc(100% - 4rem);
+		padding: 0 2rem;
+		transition: opacity .5s;
+	}
+	
+	.table-row:nth-child(2n) {
+		background-color: rgba($dark, .1);
+	}
+
+	.table-col {
+		@include r-flex;
+
+		flex-direction: column;
+		gap: inherit;
+		flex: 1 1 0;
+		height: $row-height;
+		justify-content: center;
+		align-items: flex-start;
+		color: $complementary;
+		text-shadow: 0 0 .5rem rgba($complementary, .6);
+		font-size: getFont(12px);
+		padding: 0 1rem;
+		cursor: pointer;
+		white-space: nowrap;
+		
+		span {
+			@include r-flex;
+			
+			cursor: pointer;
+
+			&::before, &::after {
+				@include a-flex;
+
+				content: '';
+				height: 70%;
+				width: .3rem;
+				border-top: 2px solid $complementary;
+				border-bottom: 2px solid $complementary;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity .3s, transform .3s;
+			}
+
+			&::before {
+				border-left: 2px solid $complementary;
+				left: 0;
+				top: 50%;
+				transform: translate(-.5rem, -50%) scale(0.6) rotate(20deg);
+			}
+
+			&::after {
+				border-right: 2px solid $complementary;
+				right: 0;
+				top: 50%;
+				transform: translate(.5rem, -50%) scale(0.6) rotate(20deg);
+			}
+			
+			&:hover::before {
+				opacity: 1;
+				transform: translate(-1rem, -50%) scale(0.8) rotate(0deg);
+			}
+			
+			&:hover::after {
+				opacity: 1;
+				transform: translate(1rem, -50%) scale(0.8) rotate(0deg);
+			}
+		}
+	}
+
+	.table-heading .table-col {
+		color: $secondary !important;
+		text-shadow: 0 0 .5rem rgba($secondary, .6);
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+}
+
+.pagination-container {
+	@include r-flex;
+
+	flex: 1 1 auto;
+	width: 100%;
+	justify-content: flex-end;
+	align-items: center;
+	padding-bottom: 1.5rem;
+	padding-top: 1rem;
+	flex-direction: column;
+}
+
+.pagination-wrapper {
+	@include r-flex;
+
+	height: fit-content;
+	overflow: hidden;
+	justify-content: flex-start;
+	width: $button-width * 5;
+}
+
+.pagination {
+	@include r-flex;
+	
+	flex-direction: row;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	align-items: center;
+	justify-content: flex-start;
+	transition: transform .5s;
+	
+	& > li {
+		@include r-flex;
+
+		width: $button-width;
+		max-width: $button-width;
+		flex: 0 0 auto;
+		height: 3rem;
+		justify-content: center;
+		align-items: center;
+		color: $secondary;
+		font-size: getFont(18px);
+		z-index: 5;
+		cursor: pointer;
+		user-select: none;
+		text-shadow: 0 0 .4rem rgba($secondary, .6);
+
+		span {
+			pointer-events: none;
+		}
+
+		&.active span {
+			@include r-flex;
+
+			height: 2.5rem;
+			padding: 0 1rem;
+			font-weight: bolder;
+			align-items: center;
+			justify-content: center;
+			background-image: linear-gradient(45deg, rgba($secondary, .1), rgba($primary, .4));
+			border: 1px solid rgba($secondary, .3);
+			color: lighten($complementary, 10%);
+			border-radius: 5px;
+			text-shadow: 0 0 .4rem rgba(lighten($complementary, 10%), .6);
+		}
+	}
+}
+
+.pagination-info {
+	@include a-flex;
+	
+	font-size: getFont(10px);
+	color: desaturate($secondary, 70%);
+	bottom: 4.5rem;
+	text-shadow: 0 0 .5rem rgba(desaturate($secondary, 70%), .5);
+}
+
+.pagination-extreme {
+	@include r-flex;
+
+	height: 3rem;
+	width: 10rem;
+	border: none;
+	background-color: transparent;
+	border-radius: 5px;
+	justify-content: center;
+	align-items: center;
+	color: $secondary;
+	font-size: getFont(15px);
+	cursor: pointer;
+	transition: transform .3s;
+
+	&:hover {
+		transform: scale(1.4);
+	}
+}
+
+.progress-bar {
+	@include r-flex;
+	
+	width: calc(100% - 6rem);
+	height: 2px;
+	background-color: rgba($complementary, .1);
+	border-radius: 2px;
+	margin: 0 3rem 2rem  3rem;
+
+	.progress-point {
+		@include a-flex;
+
+		height: .5rem;
+		width: .5rem;
+		background-color: darken($complementary, 60%);
+		border-radius: 50%;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		transition: left .5s;
+	}
+}
+
+.infos {
+	@include a-flex;
+	
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	font-family: $font;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	height: 6rem;
+	font-size: getFont(12px);
+	line-height: 24px;
+	font-weight: 600;
+	background-color: $secondary;
+	background-image: linear-gradient(45deg, royalblue, $secondary, $complementary);
+	-webkit-background-image: linear-gradient(45deg, $secondary, royalblue, $complementary);
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	text-shadow: 0 0 .4rem rgba($complementary, .4);
+}

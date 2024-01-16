@@ -1,0 +1,100 @@
+{% extends "connected/creator/base.html"%}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/connected/creator/pages.css">
+<link rel="stylesheet" href="/static/css/connected/creator/tablesys.css">
+{% endblock %}
+
+{% block content %}
+<!-- <p class="infos">
+	You can switch pages using your mouse wheel<br />
+	The amount of rows per pages depends on the height of your window when loading the page
+</p> -->
+
+<div id="button-container">
+  <button class="button-new">
+    <span class="button-circle" aria-hidden="true">
+      <span class="button-icon button-arrow"></span>
+    </span>
+    <span class="button-text">Nouveau</span>
+  </button>
+  <button class="button-new">
+    <span class="button-circle" aria-hidden="true">
+      <span class="button-icon button-arrow"></span>
+    </span>
+    <span class="button-text">Nouveau</span>
+  </button>
+  <button class="button-new">
+    <span class="button-circle" aria-hidden="true">
+      <span class="button-icon button-arrow"></span>
+    </span>
+    <span class="button-text">Nouveau</span>
+  </button>
+</div>
+
+<div class="table-container" style="--data-limit: 9">
+	<div class="table" id="table-0" data-limit="9">
+		<div class="table-row table-heading">
+			<div class="table-col">
+				#
+			</div>
+			<div class="table-col">
+				First name
+			</div>
+			<div class="table-col">
+				Last name
+			</div>
+			<div class="table-col">
+				Title
+			</div>
+			<div class="table-col">
+				Completed
+			</div>
+		</div>
+		<div class="table-row" data-copy="200">
+			<div class="table-col">
+				<span class="auto-increment">0</span>
+			</div>
+			<div class="table-col">
+				<span class="auto-firstname"></span>
+			</div>
+			<div class="table-col">
+				<span class="auto-lastname"></span>
+			</div>
+			<div class="table-col">
+				<span class="auto-title"></span>
+			</div>
+			<div class="table-col">
+				<span class="auto-integer" min="0" max="250"></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="pagination-container">
+		<div class="d-flex row flex-fill align-items-end justify-content-center">
+			<span class="pagination-info"></span>
+			<button class="pagination-extreme pagination-left">
+				<i class="fa-solid fa-angles-left"></i>
+			</button>
+			<button class="pagination-extreme pagination-left-one">
+				<i class="fa-solid fa-angle-left"></i>
+			</button>
+			<div class="d-flex flex-fill justify-content-center">
+				<div class="pagination-wrapper">
+					<ul class="pagination" data-table="table-0"></ul>
+				</div>
+			</div>
+			<button class="pagination-extreme pagination-right-one">
+				<i class="fa-solid fa-angle-right"></i>
+			</button>
+			<button class="pagination-extreme pagination-right">
+				<i class="fa-solid fa-angles-right"></i>
+			</button>
+		</div>
+	</div>
+	
+	<div class="progress-bar">
+		<div class="progress-point"></div>
+	</div>
+</div>
+{% endblock content %}

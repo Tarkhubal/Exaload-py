@@ -159,7 +159,7 @@
  * BADGE
  */
 
-   .badge {
+.badge {
     color: var(--white);
     font-size: var(--fs-12);
     font-weight: var(--fw-700);

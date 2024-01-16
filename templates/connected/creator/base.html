@@ -1,0 +1,230 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/connected/creator/main.css">
+    <title>Creator Dashboard | Exaload</title>
+    <style>
+        body {
+            background-image: url(/{{ background }})
+        }
+    </style>
+    {% block head %}
+    {% endblock %}
+</head>
+
+
+<body>
+    <main>
+      <nav class="main-menu">
+        <h1>Exaload</h1>
+        <img class="logo" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4cfdcb5a-0137-4457-8be1-6e7bd1f29ebb" alt="" />
+        <ul>
+          {% if active_page == 'home' %}
+          <li class="nav-item active">
+          {% else %}
+          <li class="nav-item">
+          {% endif %}
+            <b></b>
+            <b></b>
+            <a href="/creators">
+              <i class="fa fa-house nav-icon"></i>
+              <span class="nav-text">Accueil</span>
+            </a>
+          </li>
+
+          {% if active_page == 'profile' %}
+          <li class="nav-item active">
+          {% else %}
+          <li class="nav-item">
+          {% endif %}
+            <b></b>
+            <b></b>
+            <a href="/creators/profile">
+              <i class="fa fa-user nav-icon"></i>
+              <span class="nav-text">Profil</span>
+            </a>
+          </li>
+
+          {% if active_page == 'calendar' %}
+          <li class="nav-item active">
+          {% else %}
+          <li class="nav-item">
+          {% endif %}
+            <b></b>
+            <b></b>
+            <a href="/creators/calendar">
+              <i class="fa fa-calendar-check nav-icon"></i>
+              <span class="nav-text">Planifications</span>
+            </a>
+          </li>
+
+          {% if active_page == 'settings' %}
+          <li class="nav-item active">
+          {% else %}
+          <li class="nav-item">
+          {% endif %}
+            <b></b>
+            <b></b>
+            <a href="/creators/settings">
+              <i class="fa fa-sliders nav-icon"></i>
+              <span class="nav-text">Paramètres</span>
+            </a>
+          </li>
+
+          {% if active_page == 'movies' %}
+          <li class="nav-item active">
+          {% else %}
+          <li class="nav-item">
+          {% endif %}
+            <b></b>
+            <b></b>
+            <a href="/creators/movies">
+              <i class="fa fa-clapperboard nav-icon"></i>
+              <span class="nav-text">Films</span>
+            </a>
+          </li>
+
+          {% if active_page == 'series' %}
+          <li class="nav-item active">
+          {% else %}
+          <li class="nav-item">
+          {% endif %}
+            <b></b>
+            <b></b>
+            <a href="/creators/series">
+              <i class="fa fa-film nav-icon"></i>
+              <span class="nav-text">Séries</span>
+            </a>
+          </li>
+
+          {% if active_page == 'games' %}
+          <li class="nav-item active">
+          {% else %}
+          <li class="nav-item">
+          {% endif %}
+            <b></b>
+            <b></b>
+            <a href="/creators/games">
+              <i class="fa fa-gamepad nav-icon"></i>
+              <span class="nav-text">Jeux</span>
+            </a>
+          </li>
+
+          {% if active_page == 'musics' %}
+          <li class="nav-item active">
+          {% else %}
+          <li class="nav-item">
+          {% endif %}
+            <b></b>
+            <b></b>
+            <a href="/creators/musics">
+              <i class="fa fa-music nav-icon"></i>
+              <span class="nav-text">Musiques</span>
+            </a>
+          </li>
+
+          {% if active_page == 'applications' %}
+          <li class="nav-item active">
+          {% else %}
+          <li class="nav-item">
+          {% endif %}
+            <b></b>
+            <b></b>
+            <a href="/creators/applications">
+              <i class="fa fa-cubes nav-icon"></i>
+              <span class="nav-text">Applications</span>
+            </a>
+          </li>
+
+          {% if active_page == 'boosters' %}
+          <li class="nav-item active">
+          {% else %}
+          <li class="nav-item">
+          {% endif %}
+            <b></b>
+            <b></b>
+            <a href="/creators/boosters">
+              <i class="fa fa-rocket nav-icon"></i>
+              <span class="nav-text">Boosters</span>
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+
+      <section class="content">
+        <div class="left-content">
+          {% block content %}
+          {% endblock %}
+        </div>
+
+        <div class="right-content">
+          <div class="user-info">
+            <div class="icon-container">
+              <i class="fa fa-bell nav-icon"></i>
+              <i class="fa fa-message nav-icon"></i>
+            </div>
+            <h4>Kelsey Miller</h4>
+            <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/40b7cce2-c289-4954-9be0-938479832a9c" alt="user" />
+          </div>
+
+          <div class="active-calories">
+            <h1 style="align-self: flex-start">Portefeuille</h1>
+            <div class="active-calories-container">
+              <div class="box">
+                <div class="circle">
+                  <h2>22512<small>€</small></h2>
+                </div>
+              </div>
+              <div class="calories-content">
+                <p><span>Aujourd'hui :</span> +47€</p>
+                <p><span>Cette semaine :</span> +923€</p>
+                <p><span>Ce mois :</span> +9275€</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mobile-personal-bests">
+            <h1>Avis récents</h1>
+            <div class="personal-bests-container">
+              <div class="best-item box-one">
+                <p>Fastest 5K Run: 22min</p>
+                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/05dfc444-9ed3-44cc-96af-a9cf195f5820" alt="" />
+              </div>
+              <div class="best-item box-two">
+                <p>Longest Distance Cycling: 4 miles</p>
+                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/9ca170e9-1252-4fa6-8677-36493540c1f2" alt="" />
+              </div>
+              <div class="best-item box-three">
+                <p>Longest Roller-Skating: 2 hours</p>
+                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/262d1611-ed4c-4297-981c-480cf7f95714" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="friends-activity">
+            <h1>Avis récents</h1>
+            <div class="card-container">
+              <div class="card">
+                <div class="card-user-info">
+                  <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/9290037d-a5b2-4f50-aea3-9f3f2b53b441" alt="" />
+                  <h2>Jane</h2>
+                </div>
+                <img class="card-img" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/bef54506-ea45-4e42-a1b6-23a48f61c5e8" alt="" />
+                <p>We completed the 30-Day Running Streak Challenge!🏃‍♀️🎉</p>
+              </div>
+
+              <div class="card card-two">
+                <div class="card-user-info">
+                  <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/42616ef2-ba96-49c7-80ea-c3cf1e2ecc89" alt="" />
+                  <h2>Mike</h2>
+                </div>
+                <img class="card-img" src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/2dcc1b94-06c5-4c62-b886-53b9e433fd44" alt="" />
+                <p>I just set a new record in cycling: 30 miles!💪</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/static/js/creators/paginator.js"></script>
+  </body>
