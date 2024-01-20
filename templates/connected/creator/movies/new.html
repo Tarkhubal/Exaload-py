@@ -1,0 +1,77 @@
+{% extends "connected/creator/base.html"%}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/connected/creator/pages.css">
+<link rel="stylesheet" href="/static/css/connected/creator/form.css">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    <form action="index.html" method="post">
+      <h1>Ajouter un film</h1>
+      
+      <fieldset>
+        
+        <legend><span class="number">1</span> Informations basiques</legend>
+      
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="movie_name">
+      
+        <label for="description">Description :</label>
+        <textarea id="description" name="description" name="movie_description" style="height: 150px;"></textarea>
+     
+        <label for="password">Password:</label>
+        <input type="password" id="password"       name="user_password">
+      
+        <label>Age:</label>
+        <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">Under 13</label><br>
+        <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13" class="light">Over 13</label>
+        
+      </fieldset>
+      <fieldset>  
+      
+        <legend><span class="number">2</span> Your Profile</legend>
+        
+       <label for="bio">Bio:</label>
+        <textarea id="bio" name="user_bio"></textarea>
+      
+     
+      
+       <label for="job">Job Role:</label>
+        <select id="job" name="user_job">
+          <optgroup label="Web">
+            <option value="frontend_developer">Front-End Developer</option>
+            <option value="php_developer">PHP Developer</option>
+            <option value="python_developer">Python Developer</option>
+            <option value="rails_developer">Rails Developer</option>
+            <option value="web_designer">Web Designer</option>
+            <option value="wordpress_developer">Wordpress Developer</option>
+          </optgroup>
+          <optgroup label="Mobile">
+            <option value="android_developer">Android Developer</option>
+            <option value="ios_developer">IOS Developer</option>
+            <option value="mobile_designer">Mobile Designer</option>
+          </optgroup>
+          <optgroup label="Business">
+            <option value="business_owner">Business Owner</option>
+            <option value="freelancer">Freelancer</option>
+          </optgroup>
+        </select>
+        
+        <label>Interests:</label>
+        <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">Development</label><br>
+        <input type="checkbox" id="design" value="interest_design" name="user_interest"><label class="light" for="design">Design</label><br>
+        <input type="checkbox" id="business" value="interest_business" name="user_interest"><label class="light" for="business">Business</label>
+        
+       </fieldset>
+     
+      <button type="submit">Sign Up</button>
+      
+     </form>
+      </div>
+    </div>
+    
+  
+
+{% endblock content %}

@@ -255,6 +255,11 @@ def _index_creators():
 def _movies_creators():
     return render_template('connected/creator/movies.html', background=current_user.background, active_page="movies")
 
+@app.route('/creators/movies/new')
+@login_required
+def _movies_new_creators():
+    return render_template('connected/creator/movies/new.html', background=current_user.background, active_page="movies")
+
 
 # @app.route('/signup', methods=['POST'])
 # def _signup_post():
