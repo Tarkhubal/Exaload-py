@@ -12,7 +12,7 @@ import time
 
 app = Flask(__name__)
 
-port = 20065
+port = 80
 app.config['SECRET_KEY'] = 'secret-key-goes-here'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
