@@ -1,4 +1,7 @@
 import os
+if os.name != "nt":
+    from crypt import methods
+
 from flask import Flask, render_template, redirect, url_for, request, flash, make_response, send_from_directory, render_template_string
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
@@ -12,10 +15,10 @@ import time
 
 app = Flask(__name__)
 
-port = 80
+port = 20065
 app.config['SECRET_KEY'] = 'secret-key-goes-here'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-db = SQLAlchemy(app)
+db: SQLAlchemy = SQLAlchemy(app)
 
 login_manager = LoginManager()
 login_manager.login_view = "login"
@@ -27,6 +30,12 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(100))
     name = db.Column(db.String(1000))
     background = db.Column(db.String(1000), default="static/assets/img/wallhaven-83ogv2.png")
+
+class Movie(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(1000))
+    plot = db.Column(db.String(1000))
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -98,7 +107,7 @@ def login_post():
         return redirect("/login")
     
     login_user(user, remember=remember)
-    return redirect("/profile")
+    return redirect("/")
 
 
 @app.route('/signup')
@@ -136,8 +145,11 @@ def signup_post():
     db.session.add(new_user)
     db.session.commit()
     
+    # Connect the user
+    login_user(new_user, remember=True)
+    
     # code to validate and add user to database goes here
-    return redirect("/login")
+    return redirect("/")
 
 
 @app.route('/logout')
@@ -291,32 +303,6 @@ def _movies_new_creators():
 
 
 
-movies = [
-    {
-        "title": "Iron Man",
-        "plot": "Iron man bla bla bla hero bla bla marvel bla bla flying",
-        "cover": "https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0",
-        "genres": [
-            "sf",
-            "romance",
-            "love"
-        ],
-        "id": "1"
-    },
-    {
-        "title": "Cat Woman",
-        "plot": "a cat woman : a woman in a cat or smt like this idk",
-        "cover": "https://th.bing.com/th/id/R.bd9601884804f5e1e39d436bc05b9f63?rik=9fLq%2bbEvaK7lCQ&pid=ImgRaw&r=0",
-        "genres": [
-            "horror",
-            "romance"
-        ],
-        "id": "2"
-    }
-]
-
-
-
 # --------------------- API ---------------------
 @app.route("/api/v1")
 def _api_v1():
@@ -327,6 +313,18 @@ def _api_v1():
 def _api_v1_movies():
     return {"help": "here it's the movies API, gg"}
 
+@app.route("/api/v1/movies", methods=['POST'])
+def _api_v1_movies_post():
+    title = request.args.get("title")
+    plot = request.args.get("plot")
+    
+    new_movie = Movie(title=title, plot=plot)
+    
+    db.session.add(new_movie)
+    db.session.commit()
+    
+    return {"success": True}
+
 @app.route("/api/v1/movies/search", methods=['GET'])
 def _api_v1_movies_search():
     title = request.args.get("title")
@@ -334,15 +332,9 @@ def _api_v1_movies_search():
     
     correct = []
     
-    for movie in movies:
-        if movie["title"] == title:
+    for movie in Movie.query.all():
+        if title.lower() in movie.title.lower() and len(set(movie.genres.split(",")) & set(genres)) > 0:
             correct.append(movie)
-            continue
-        
-        for genre in genres:
-            if genre in movie["genres"]:
-                correct.append(movie)
-                break
     
     return correct
 
