@@ -36,12 +36,6 @@ class Movie(db.Model):
     title = db.Column(db.String(1000))
     plot = db.Column(db.String(1000))
 
-class MoviesAdmins(db.Model):
-    auth_id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer)
-    movie_id = db.Column(db.Integer)
-    rank = db.Column(db.Integer, default=3) # 0 = viewer, 1 = editor, 2 = admin, 3 = owner
-
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -312,29 +306,21 @@ def _movies_new_creators():
 # --------------------- API ---------------------
 @app.route("/api/v1")
 def _api_v1():
-    return {"msg": "welcome on Exaload's API !"}
+    return {"hi": "welcome on Exaload's API !"}
 
 
 @app.route("/api/v1/movies")
 def _api_v1_movies():
-    return {"msg": "here is the movies API, gg"}
+    return {"help": "here it's the movies API, gg"}
 
 @app.route("/api/v1/movies", methods=['POST'])
 def _api_v1_movies_post():
-    title = request.form.get("movie_name")
-    plot = request.form.get("movie_description")
-    print("New request for a movie ! Data :", request.form)
-    
-    f = request.files['movie_file'] 
-    f.save(os.path.join("static\\assets\\movies", f.filename))
-    print("Saved file", f.filename)
+    title = request.args.get("title")
+    plot = request.args.get("plot")
     
     new_movie = Movie(title=title, plot=plot)
-    db.session.add(new_movie)
-    db.session.commit()
-    new_movie_admin = MoviesAdmins(user_id=current_user.id, movie_id=new_movie.id, rank=3)
     
-    db.session.add(new_movie_admin)
+    db.session.add(new_movie)
     db.session.commit()
     
     return {"success": True}
