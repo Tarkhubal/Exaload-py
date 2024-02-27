@@ -164,3 +164,5 @@ cython_debug/
 .vscode/
 test.py
 exaload_v2.zip
+SQLiteDatabaseBrowserPortable/Data/PortableApps.comLauncherRuntimeData-SQLiteDatabaseBrowserPortable.ini
+SQLiteDatabaseBrowserPortable/Data/settings/SQLiteDatabaseBrowserPortableSettings.ini
