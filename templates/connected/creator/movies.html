@@ -24,38 +24,40 @@
 	<div class="table" id="table-0" data-limit="9">
 		<div class="table-row table-heading">
 			<div class="table-col">
-				#
+				# ID
 			</div>
 			<div class="table-col">
-				First name
+				Titre
 			</div>
 			<div class="table-col">
-				Last name
+				Plot
 			</div>
 			<div class="table-col">
-				Title
+				État
 			</div>
 			<div class="table-col">
-				Completed
+				
 			</div>
 		</div>
-		<div class="table-row" data-copy="200">
+		{% for movie in movies %}
+		<div class="table-row" data-copy="0">
 			<div class="table-col">
-				<span class="auto-increment">0</span>
+				<span>{{ movie["id"] }}</span>
 			</div>
 			<div class="table-col">
-				<span class="auto-firstname"></span>
+				<span>{{ movie["title"] }}</span>
 			</div>
 			<div class="table-col">
-				<span class="auto-lastname"></span>
+				<span>{{ movie["plot"] }}</span>
 			</div>
 			<div class="table-col">
-				<span class="auto-title"></span>
+				<span>Publique</span>
 			</div>
 			<div class="table-col">
-				<span class="auto-integer" min="0" max="250"></span>
+				<span onclick="window.location.href='/creators/movies/id/{{ movie["id"] }}'">Accéder</span>
 			</div>
 		</div>
+		{% endfor %}
 	</div>
 
 	<div class="pagination-container">

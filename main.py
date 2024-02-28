@@ -11,6 +11,7 @@ from PIL import Image
 
 # import flaskwebgui
 import time
+import requests
 
 
 app = Flask(__name__)
@@ -272,13 +273,23 @@ def _index_creators():
 @app.route('/creators/movies')
 @login_required
 def _movies_creators():
-    return render_template('connected/creator/movies.html', background=current_user.background, active_page="movies")
+    movies = requests.get(f"http://localhost:{port}/api/v1/movies/list", params={"user_id": current_user.id}).json()
+    return render_template('connected/creator/movies.html', background=current_user.background, active_page="movies", movies=movies["data"], count=movies["count"])
 
 @app.route('/creators/movies/new')
 @login_required
 def _movies_new_creators():
     return render_template('connected/creator/movies/new.html', background=current_user.background, active_page="movies")
 
+# Create a route to view a specific movie '/creators/movies/<id>'
+@app.route('/creators/movies/<id>')
+@login_required
+def _movies_id_creators(id):
+    movie = Movie.query.filter_by(id=id).first()
+    return render_template('connected/creator/movies/info.html',
+        background=current_user.background, active_page="movies",
+        movie=movie
+    )
 
 # @app.route('/signup', methods=['POST'])
 # def _signup_post():
@@ -338,26 +349,57 @@ def _api_v1_movies_post():
     db.session.add(new_movie_admin)
     db.session.commit()
     
-    return {"success": True}
+    return redirect("/creators/movies")
 
 @app.route("/api/v1/movies/list", methods=['GET'])
 def _api_v1_movies_list():
     limit_limit = 10000
     page = (int(request.args.get("page")) if request.args.get("page") else 1) - 1
     limit = int(request.args.get("limit")) if request.args.get("limit") else 100
+    user_id = int(request.args.get("user_id")) if request.args.get("user_id") else None
+    
     alert = None
     if limit > limit_limit:
         alert = f"The limit is too high, it has been set to {limit_limit}. Please, don't try to overload the server."
         limit = limit_limit
     
+    def get_movie(movie: Movie, owner: MoviesAdmins):
+        plot = movie.plot
+        if len(plot) > 15:
+            plot = plot[:15] + "..."
+        title = movie.title
+        if len(title) > 15:
+            title = title[:15] + "..."
+        return {
+            "id": movie.id,
+            "title": movie.title,
+            "plot": plot,
+            "owner": owner.user_id
+        }
     
     movies = []
     count = 0
-    for movie in Movie.query.limit(limit).offset(page * limit).all():
-        count += 1
-        owner = MoviesAdmins.query.filter_by(movie_id=movie.id, rank=3).first()
-        movies.append({"id": movie.id, "title": movie.title, "plot": movie.plot, "owner": owner.user_id})
-    
+    query = Movie.query
+    query.limit(limit).offset(page * limit)
+    if user_id:
+        for movie in query.all():
+            owner = MoviesAdmins.query.filter_by(
+                movie_id=movie.id,
+                rank=3
+            ).first()
+            if owner.user_id == user_id:
+                count += 1
+                movies.append(get_movie(movie, owner))
+
+    else:
+        for movie in query.all():
+            count += 1
+            owner = MoviesAdmins.query.filter_by(
+                movie_id=movie.id,
+                rank=3
+            ).first()
+            movies.append(get_movie(movie, owner))
+
     return {
         "data": movies,
         "success": True,
