@@ -24,6 +24,7 @@ login_manager = LoginManager()
 login_manager.login_view = "login"
 login_manager.init_app(app)
 
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
     email = db.Column(db.String(100), unique=True)
@@ -37,7 +38,7 @@ class Movie(db.Model):
     plot = db.Column(db.String(1000))
 
 class MoviesAdmins(db.Model):
-    auth_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
     movie_id = db.Column(db.Integer)
     rank = db.Column(db.Integer, default=3) # 0 = viewer, 1 = editor, 2 = admin, 3 = owner
@@ -106,7 +107,7 @@ def login_post():
     email = request.form.get('email')
     password = request.form.get('password')
     remember = True if request.form.get('remember') else False
-
+    
     user = User.query.filter_by(email=email).first()
     if not user or not check_password_hash(user.password, password):
         flash('Please check your login details and try again.')
@@ -338,6 +339,32 @@ def _api_v1_movies_post():
     db.session.commit()
     
     return {"success": True}
+
+@app.route("/api/v1/movies/list", methods=['GET'])
+def _api_v1_movies_list():
+    limit_limit = 10000
+    page = (int(request.args.get("page")) if request.args.get("page") else 1) - 1
+    limit = int(request.args.get("limit")) if request.args.get("limit") else 100
+    alert = None
+    if limit > limit_limit:
+        alert = f"The limit is too high, it has been set to {limit_limit}. Please, don't try to overload the server."
+        limit = limit_limit
+    
+    
+    movies = []
+    count = 0
+    for movie in Movie.query.limit(limit).offset(page * limit).all():
+        count += 1
+        owner = MoviesAdmins.query.filter_by(movie_id=movie.id, rank=3).first()
+        movies.append({"id": movie.id, "title": movie.title, "plot": movie.plot, "owner": owner.user_id})
+    
+    return {
+        "data": movies,
+        "success": True,
+        "msg": "Here is the list of movies",
+        "count": count,
+        "alert": alert
+    }
 
 @app.route("/api/v1/movies/search", methods=['GET'])
 def _api_v1_movies_search():
