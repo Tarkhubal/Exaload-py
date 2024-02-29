@@ -286,7 +286,7 @@ def _movies_new_creators():
 @login_required
 def _movies_id_creators(id):
     movie = Movie.query.filter_by(id=id).first()
-    return render_template('connected/creator/movies/info.html',
+    return render_template('connected/creator/movies/view.html',
         background=current_user.background, active_page="movies",
         movie=movie
     )
@@ -365,11 +365,13 @@ def _api_v1_movies_list():
     
     def get_movie(movie: Movie, owner: MoviesAdmins):
         plot = movie.plot
-        if len(plot) > 15:
-            plot = plot[:15] + "..."
+        max_len = 13
+        
+        if len(plot) > max_len:
+            plot = plot[:max_len] + "..."
         title = movie.title
-        if len(title) > 15:
-            title = title[:15] + "..."
+        if len(title) > max_len:
+            title = title[:max_len] + "..."
         return {
             "id": movie.id,
             "title": movie.title,
@@ -420,6 +422,34 @@ def _api_v1_movies_search():
             correct.append(movie)
     
     return correct
+
+@app.route("/api/v1/movies/edit/title", methods=['POST'])
+def _api_v1_movies_edit_title():
+    movie_id = request.form.get("movie_id")
+    new_title = request.form.get("new_title")
+    
+    movie = Movie.query.filter_by(id=movie_id).first()
+    movie.title = new_title
+    db.session.commit()
+    
+    if not "api" in request.referrer:
+        return redirect("/creators/movies/" + movie_id)
+    
+    return {"success": True, "msg": "Title has been updated !"}
+
+@app.route("/api/v1/movies/edit/plot", methods=['POST'])
+def _api_v1_movies_edit_plot():
+    movie_id = request.form.get("movie_id")
+    new_plot = request.form.get("new_plot")
+    
+    movie = Movie.query.filter_by(id=movie_id).first()
+    movie.plot = new_plot
+    db.session.commit()
+    
+    if not "api" in request.referrer:
+        return redirect("/creators/movies/" + movie_id)
+    
+    return {"success": True, "msg": "Plot has been updated !"}
 
 
 # def start_flask(**server_kwargs):

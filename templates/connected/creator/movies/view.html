@@ -2,17 +2,33 @@
 
 {% block head %}
 <link rel="stylesheet" href="/static/css/connected/creator/pages.css">
-<link rel="stylesheet" href="/static/css/connected/creator/form.css">
 {% endblock %}
 
 <!-- Page to view informations on movies -->
 
 {% block content %}
-<div class="row">
-    <div class="col-md-12">
-        <h1>{{ movie.title }}</h1>
 
-    </div>
+<div class="col-md-12">
+    <button class="button-new" onclick="window.location.href='/creators/movies'">
+        <span class="button-circle" aria-hidden="true">
+            <span class="button-icon button-arrow"></span>
+        </span>
+        <span class="button-text">Retour</span>
+    </button>
+
+    <h1>{{ movie.title }}<span> | ID : {{ movie.id }}</span></h1>
+    <form method="POST" action="/api/v1/movies/edit/title">
+        <input type="hidden" value="{{ movie.id }}" name="movie_id"></input>
+        <input type="text" placeholder="Entrez le nouveau titre" name="new_title" required></input>
+        <input type="submit" value="Modifier le titre du film"></input>
+    </form>
+
+    <p>Plot: {{ movie.plot }}</p>
+    <form method="POST" action="/api/v1/movies/edit/plot">
+        <input type="hidden" value="{{ movie.id }}" name="movie_id"></input>
+        <input type="text" placeholder="Entrez le nouveau plot" name="new_plot" required></input>
+        <input type="submit" value="Modifier le plot du film"></input>
+    </form>
 </div>
     
   
