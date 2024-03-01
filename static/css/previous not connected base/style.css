@@ -50,6 +50,7 @@ nav {
     justify-content: space-between;
     padding: 20px 0;
     width: 100%;
+    font-family: "Outfit", sans-serif;
 }
 
 nav #exaloadlogo {
@@ -92,7 +93,6 @@ nav .createbtn {
     width: 126px;
     height: 45px;
     color: #bcbcbc;
-    font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -106,7 +106,7 @@ nav .createbtn.selectedbtn {
 
 nav .navlogo {
     height: 100%;
-    background: linear-gradient(93.51deg, #9b51e0 2.84%, #ffffff 99.18%);
+    background: linear-gradient(90deg, #FC2CFF 0%, #4646F5 50%, #25B7FB 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: "Poppins";

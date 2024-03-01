@@ -1,0 +1,124 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    /* Scrollbars */
+    width: 14px;
+    height: 14px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    /* Barre */
+    border: solid 0 transparent;
+    border-right-width: 4px;
+    -webkit-border-radius: 5px;
+    -webkit-border-top-right-radius: 9px 5px;
+    -webkit-border-bottom-right-radius: 9px 5px;
+    -webkit-box-shadow: inset 0 0 0 1px #8d87f8, inset 0 0 0 6px #8680eb;
+}
+
+::-webkit-scrollbar-corner {
+    /* Coin de la fenêtre */
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    /* Barre quand survolée */
+    -webkit-transition: all 0.2s ease-out 0s;
+    -moz-transition: all 0.2s ease-out 0s;
+    transition: all 0.2s ease-out 0s;
+    -webkit-box-shadow: inset 0 0 0 1px #8d87f8,
+                        inset 0 0 0 6px #8680eb;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    /* Barre du bas */
+    border-right-width: 0;
+    border-bottom-width: 4px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px 9px;
+    -webkit-border-bottom-left-radius: 5px 9px;
+}
+
+html {
+    background-color: #682d83;
+}
+
+
+
+/* Nav */
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    width: 100%;
+    font-family: "Outfit", sans-serif;
+}
+
+#nav .main-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 40px;
+}
+
+#nav .main-links .nav-link {
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+#nav .user-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav .user-links .nav-link {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+    color: white;
+    margin: 0 5px;
+    font-size: 18px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+#nav .user-links .nav-link.with-bg {
+    background: white;
+    color: #682d83;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+
+/* Nav logo */
+#nav .nav-logocontainer {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    cursor: pointer;
+    font-family: "Poppins";
+}
+
+#nav .nav-logocontainer #exaloadlogo {
+    max-width: 75px;
+}
+
+#nav .nav-logocontainer .nav-logo-text {
+    height: 100%;
+    background: linear-gradient(90deg, #FC2CFF 0%, #4646F5 50%, #25B7FB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+}
