@@ -2,6 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 
+:root {
+    --main-white: #ffffff;
+    --main-black: #000000;
+    --main-border: #FC2CFF;
+    --main-hover: var(--main-border);
+}
+
 
 /* Scrollbar */
 ::-webkit-scrollbar {
@@ -45,7 +52,14 @@
 }
 
 html {
-    background-color: #682d83;
+    background-color: #1F1D2B;
+}
+
+
+
+/* Main elements */
+.main-button {
+    background-color: #4646F5;
 }
 
 
@@ -55,7 +69,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 10px 0;
     width: 100%;
     font-family: "Outfit", sans-serif;
 }
@@ -63,17 +77,24 @@ html {
 #nav .main-links {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-right: 40px;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
 }
 
 #nav .main-links .nav-link {
     margin: 0 10px;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
     color: white;
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
 
 #nav .user-links {
@@ -83,13 +104,14 @@ html {
 }
 
 #nav .user-links .nav-link {
-    padding: 10px;
-    border-radius: 10px;
+    padding: 13px 25px;
+    border-radius: 20px;
     border: 1px solid white;
     color: white;
     margin: 0 5px;
     font-size: 18px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
 }
 
 #nav .user-links .nav-link.with-bg {
