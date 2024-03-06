@@ -31,19 +31,20 @@
         </div>
 
         <div class="main-links">
-            <a href="/" class="nav-link active">Accueil</a>
-            <a href="/forums" class="nav-link">Forums</a>
-            <a href="/faq" class="nav-link">FAQ</a>
-            <a href="/exacoins" class="nav-link">Exacoins</a>
+            <a href="/" class="main-link {{ 'active' if request.path == '/' }}">Accueil</a>
+            <a href="/forums" class="main-link {{ 'active' if request.path == '/forums' }}">Forums</a>
+            <a href="/faq" class="main-link {{ 'active' if request.path == '/faq' }}">FAQ</a>
+            <a href="/exacoins" class="main-link {{ 'active' if request.path == '/exacoins' }}">Exacoins</a>
+            <a href="/pricing" class="main-link {{ 'active' if request.path == '/pricing' }}">Abonnements</a>
         </div>
 
         <div class="user-links">
             {% if request.cookies.get('user_id') %}
-                <a href="/dashboard" class="nav-link with-bg">Dashboard</a>
-                <a href="/creators" class="nav-link">Créateurs</a>
+                <a href="/dashboard" class="main-button">Dashboard</a>
+                <a href="/creators" class="secondary-button">Créateurs</a>
             {% else %}
-                <a href="/login" class="nav-link with-bg">Connexion</a>
-                <a href="/register" class="nav-link">Inscription</a>
+                <a href="/login" class="main-button">Connexion</a>
+                <a href="/register" class="secondary-button">Inscription</a>
             {% endif %}
         </div>
     </section>

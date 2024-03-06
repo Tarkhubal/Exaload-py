@@ -90,6 +90,10 @@ def index():
     
     return render_template('not-connected/index.html', stylesheet="index", title="Accueil")
 
+@app.route("/pricing")
+def pricing():
+    return render_template("not-connected/pricing.html", title="Abonnements", stylesheet="pricing")
+
 
 @app.route('/login')
 def login():

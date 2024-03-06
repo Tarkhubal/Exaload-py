@@ -1,0 +1,149 @@
+{% extends "not-connected/base.html" %}
+
+{% block content %}
+
+<section class="pricing-table table-center">
+    <table>
+        <tr>
+            <th class="no-bg"></th>
+            <th><span>Gratuit</span></th>
+            <th><span>Kilo</span></th>
+            <th><span>Méga</span></th>
+            <th><span>Giga</span></th>
+            <th><span>Téra</span></th>
+            <th><span>Péta</span></th>
+        </tr>
+
+
+
+        <tr>
+            <td>Prix par mois</td>
+            <td>0€</td>
+            <td>2.99€</td>
+            <td>5.99€</td>
+            <td>11.99€</td>
+            <td>19.99€</td>
+            <td>24.99€</td>
+        </tr>
+
+        <tr>
+            <td>12 mois au prix de 10<sup class="little grey">1</sup></td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td>119.99€</td>
+            <td>199.99€</td>
+            <td>249.99€</td>
+        </tr>
+
+        <tr>
+            <td>Exacoins par mois<sup class="little grey">2</sup></td>
+            <td class="annotation">x</td>
+            <td>100</td>
+            <td>200</td>
+            <td>300</td>
+            <td>500</td>
+            <td>750</td>
+        </tr>
+
+        <tr>
+            <td>Exacoins par pub vue<sup class="little grey">3</sup></td>
+            <td>x1</td>
+            <td>x1.2</td>
+            <td>x1.5</td>
+            <td>x2</td>
+            <td>x3</td>
+            <td>x4</td>
+        </tr>
+
+        <tr>
+            <td class="part-title">Musiques</td>
+        </tr>
+
+        <tr>
+            <td>Pas de pubs entre les morceaux</td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td class="annotation">✔</td>
+            <td class="annotation">✔</td>
+            <td class="annotation">✔</td>
+        </tr>
+
+        <tr>
+            <td>Qualité d'écoute<sup class="little grey">4</sup></td>
+            <td>128kbps</td>
+            <td>192kbps</td>
+            <td>256kbps</td>
+            <td>320kbps</td>
+            <td>1411kbps</td>
+            <td>1411kbps</td>
+        </tr>
+
+        <tr>
+            <td>Mode hors connexion</td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td class="annotation">✔</td>
+            <td class="annotation">✔</td>
+            <td class="annotation">✔</td>
+        </tr>
+
+        <tr>
+            <td>Organisation par IA<sup class="little grey">5</sup></td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td class="annotation">✔</td>
+            <td class="annotation">✔</td>
+        </tr>
+
+
+        <tr>
+            <td class="part-title">Films et séries</td>
+        </tr>
+
+        <tr>
+            <td>Qualité de l'image<sup class="little grey">4</sup></td>
+            <td>720p</td>
+            <td>1080p</td>
+            <td>1080p</td>
+            <td>1440p</td>
+            <td>4K</td>
+            <td>8K</td>
+        </tr>
+        
+        <tr>
+            <td>Mode hors connexion</td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td class="annotation">✔</td>
+            <td class="annotation">✔</td>
+            <td class="annotation">✔</td>
+        </tr>
+        
+        <tr>
+            <td>Pas de pub au début</td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td class="annotation">x</td>
+            <td class="annotation">✔</td>
+            <td class="annotation">✔</td>
+            <td class="annotation">✔</td>
+        </tr>
+    </table>
+</section>
+
+<div class="help">
+    <p>1. Pour les abonnements de 12 mois, les 2 mois supplémentaires sont offerts.</p>
+    <p>2. Les exacoins sont une monnaie virtuelle utilisée pour acheter des produits sur Exaload, comme des films, des albums de musique... Ils sont offerts en fonction de l'abonnement choisi ou peuvent être achetés et gagnés (concours, succès...) sur le site.</p>
+    <p>3. Multiplie les exacoins que vous obtenez en regardant des publicités</p>
+    <p>4. La qualité d'écoute et de l'image précisée est la qualité maximale disponible avec l'abonnement. La qualité peut être réduite pour économiser de la bande passante et conserver une image fluide.</p>
+    <p>5. L'organisation par IA est une fonctionnalité vous permettant de trier automatiquement les musiques d'une playlist en fonction d'un critère choisi (enchainement, goûts...).</p>
+    <p>Plus d'informations sur les abonnements <a href="/pricing/about">ici</a>.</p>
+</div>
+
+{% endblock %}
