@@ -1,3 +1,16 @@
 .pricing-table {
     margin-top: 50px;
 }
+
+.explications {
+    color: white;
+    font-family: "Outfit", "Trebuchet MS", sans-serif;
+    width: 50vw;
+    margin-left: 25vw;
+    font-size: 22px;
+}
+
+.explications p {
+    padding-top: 30px;
+}
+

@@ -123,6 +123,7 @@ html {
     -webkit-text-fill-color: transparent;
     padding-bottom: 0px;
     border-bottom: 2px solid var(--link-border);
+    transition: all 0.2s ease;
 }
 
 sup.little {
@@ -154,6 +155,7 @@ a {
     color: white;
     text-decoration: none;
     border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
 }
 
 a:hover {
@@ -166,7 +168,7 @@ a:hover {
 /* Tables */
 table {
     color: white;
-    font-family: "Outfit", sans-serif;
+    font-family: "Outfit", "Trebuchet MS", sans-serif;
 }
 
 table, th, tr, td {
@@ -215,6 +217,21 @@ table .part-title {
     color: white;
     text-align: center;
     padding-top: 50px;
+}
+
+table .best {
+    background-image: linear-gradient(90deg, #fb36ce 25%, #ff0000 100%)
+}
+
+table .best .oriented-text {
+    transform: rotateZ(30deg) translate(35px, -45px);
+    background: #ff00009e;
+    font-size: 15px;
+    position: absolute;
+    backdrop-filter: blur(15px);
+    margin: 0;
+    height: 40px;
+    width: 140px;
 }
 
 

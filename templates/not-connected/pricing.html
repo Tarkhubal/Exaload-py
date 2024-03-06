@@ -2,6 +2,38 @@
 
 {% block content %}
 
+<section class="explications">
+    <h2>Pourquoi des prix "si élevés" par rapport à d'autres services ?</h2>
+    <p>
+        Tout d'abord, nous essayions de vous faire les prix les plus bas possibles.
+        Nos prix peuvent vous paraître plus élevés que chez d'autres services de
+        streaming car nous vous fournissons une "offre tout en un" par défaut
+        (présentée sur le tableau ci-dessous).
+    </p>
+    
+    <p>
+        Il vous suffit de calculer :
+        un abonnement de streaming musical coûte en moyenne dans les 12€/mois, ceux
+        de films et séries dans les 15€, ceux de jeux en moyenne 25€, etc... Bref,
+        vous arrivez avec un total de parfois de plus de 50€/mois. Regardez par
+        vous-mêmes dans le tableau ci-dessous, notre abonnement le plus cher n'atteint
+        même pas les 50€/mois et offre encore plus de fonctionnalité qu'autre part !
+    </p>
+    
+    <p>
+        Chez Exaload, nous vous permettons d'obtenir les mêmes services (en mieux 😎)
+        pour moitié prix de ce que vous payé en total habituellement.
+    <p>
+        Et en plus, on intègre un système de cashback, qu'est-ce qu'il vous faut de plus ?
+    </p>
+
+    <p>
+        Pour finir, comme si on en faisait pas déjà assez, vous pouvez vous créer votre
+        propre abonnement adapté à vos besoins et envies via notre configurateur en
+        cliquant sur le bouton ci-dessous
+    </p>
+</section>
+
 <section class="pricing-table table-center">
     <table>
         <tr>
@@ -10,8 +42,9 @@
             <th><span>Kilo</span></th>
             <th><span>Méga</span></th>
             <th><span>Giga</span></th>
-            <th><span>Téra</span></th>
+            <th><span class="best">Téra<span class="oriented-text">Meilleur choix !</span></span></th>
             <th><span>Péta</span></th>
+            <th><span>Exa</span></th>
         </tr>
 
 
@@ -19,11 +52,12 @@
         <tr>
             <td>Prix par mois</td>
             <td>0€</td>
-            <td>2.99€</td>
-            <td>5.99€</td>
-            <td>11.99€</td>
+            <td>4.99€</td>
+            <td>9.99€</td>
+            <td>14.99€</td>
             <td>19.99€</td>
             <td>24.99€</td>
+            <td>29.99€</td>
         </tr>
 
         <tr>
@@ -31,9 +65,10 @@
             <td class="annotation">x</td>
             <td class="annotation">x</td>
             <td class="annotation">x</td>
-            <td>119.99€</td>
+            <td>114.99€</td>
             <td>199.99€</td>
             <td>249.99€</td>
+            <td>299.99€</td>
         </tr>
 
         <tr>
@@ -42,18 +77,20 @@
             <td>100</td>
             <td>200</td>
             <td>300</td>
-            <td>500</td>
-            <td>750</td>
+            <td>400</td>
+            <td>600</td>
+            <td>800</td>
         </tr>
 
         <tr>
             <td>Exacoins par pub vue<sup class="little grey">3</sup></td>
             <td>x1</td>
+            <td>x1.1</td>
             <td>x1.2</td>
             <td>x1.5</td>
             <td>x2</td>
+            <td>x2.5</td>
             <td>x3</td>
-            <td>x4</td>
         </tr>
 
         <tr>
@@ -68,6 +105,7 @@
             <td class="annotation">✔</td>
             <td class="annotation">✔</td>
             <td class="annotation">✔</td>
+            <td class="annotation">✔</td>
         </tr>
 
         <tr>
@@ -76,6 +114,7 @@
             <td>192kbps</td>
             <td>256kbps</td>
             <td>320kbps</td>
+            <td>1411kbps</td>
             <td>1411kbps</td>
             <td>1411kbps</td>
         </tr>
@@ -88,6 +127,7 @@
             <td class="annotation">✔</td>
             <td class="annotation">✔</td>
             <td class="annotation">✔</td>
+            <td class="annotation">✔</td>
         </tr>
 
         <tr>
@@ -96,6 +136,7 @@
             <td class="annotation">x</td>
             <td class="annotation">x</td>
             <td class="annotation">x</td>
+            <td class="annotation">✔</td>
             <td class="annotation">✔</td>
             <td class="annotation">✔</td>
         </tr>
@@ -113,6 +154,7 @@
             <td>1440p</td>
             <td>4K</td>
             <td>8K</td>
+            <td>+8K</td>
         </tr>
         
         <tr>
@@ -123,10 +165,12 @@
             <td class="annotation">✔</td>
             <td class="annotation">✔</td>
             <td class="annotation">✔</td>
+            <td class="annotation">✔</td>
         </tr>
         
         <tr>
             <td>Pas de pub au début</td>
+            <td class="annotation">x</td>
             <td class="annotation">x</td>
             <td class="annotation">x</td>
             <td class="annotation">x</td>
@@ -138,9 +182,9 @@
 </section>
 
 <div class="help">
-    <p>1. Pour les abonnements de 12 mois, les 2 mois supplémentaires sont offerts.</p>
-    <p>2. Les exacoins sont une monnaie virtuelle utilisée pour acheter des produits sur Exaload, comme des films, des albums de musique... Ils sont offerts en fonction de l'abonnement choisi ou peuvent être achetés et gagnés (concours, succès...) sur le site.</p>
-    <p>3. Multiplie les exacoins que vous obtenez en regardant des publicités</p>
+    <p>1. Pour un abonnement de 12 mois, les 2 mois supplémentaires sont offerts (si compris dans l'abonnement). Offre valable à chaque renouvellement</p>
+    <p>2. Les exacoins sont une monnaie virtuelle utilisée pour acheter des produits sur Exaload, comme des films, des épisodes de séries, des albums de musique, des applications...Ils sont offerts en fonction de l'abonnement choisi ou peuvent être<br />achetés et gagnés (concours, succès...) sur le site.</p>
+    <p>3. Multiplie les exacoins que vous obtenez en regardant des publicités.</p>
     <p>4. La qualité d'écoute et de l'image précisée est la qualité maximale disponible avec l'abonnement. La qualité peut être réduite pour économiser de la bande passante et conserver une image fluide.</p>
     <p>5. L'organisation par IA est une fonctionnalité vous permettant de trier automatiquement les musiques d'une playlist en fonction d'un critère choisi (enchainement, goûts...).</p>
     <p>Plus d'informations sur les abonnements <a href="/pricing/about">ici</a>.</p>
