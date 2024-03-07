@@ -27,7 +27,7 @@
     <section id="nav">
         <div class="nav-logocontainer" onclick="window.location.href='/'">
             <img src="/static/assets/logo.png" alt="Exaload logo" id="exaloadlogo">
-            <a class="nav-logo-text">Exaload</a>
+            <a class="nav-logo-text no-border no-border-hover">Exaload</a>
         </div>
 
         <div class="main-links">
@@ -39,12 +39,18 @@
         </div>
 
         <div class="user-links">
-            {% if request.cookies.get('user_id') %}
-                <a href="/dashboard" class="main-button">Dashboard</a>
-                <a href="/creators" class="secondary-button">Créateurs</a>
-            {% else %}
+            {% if request.path == '/login' %}
+                <a href="/register" class="main-button">Inscription</a>
+            {% elif request.path == '/register' %}
                 <a href="/login" class="main-button">Connexion</a>
-                <a href="/register" class="secondary-button">Inscription</a>
+            {% else %}
+                {% if request.cookies.get('user_id') %}
+                    <a href="/dashboard" class="main-button">Dashboard</a>
+                    <a href="/creators" class="secondary-button">Créateurs</a>
+                {% else %}
+                    <a href="/login" class="main-button">Connexion</a>
+                    <a href="/register" class="secondary-button">Inscription</a>
+                {% endif %}
             {% endif %}
         </div>
     </section>

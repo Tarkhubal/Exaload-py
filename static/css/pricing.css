@@ -12,5 +12,6 @@
 
 .explications p {
     padding-top: 30px;
+    text-align: justify;
 }
 

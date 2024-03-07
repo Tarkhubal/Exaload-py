@@ -3,6 +3,7 @@
 
 
 :root {
+    --bg: #1F1D2B;
     --main-white: #ffffff;
     --main-black: #000000;
     --main-border: #FC2CFF;
@@ -10,6 +11,7 @@
     --link-border: #B636FB;
     --main-button-color: #4646F5;
     --grey: #8d8d8d;
+    --nav-height: 120px;
 }
 
 
@@ -55,7 +57,7 @@
 }
 
 html {
-    background-color: #1F1D2B;
+    background-color: var(--bg);
 }
 
 
@@ -104,18 +106,6 @@ html {
     border-bottom: 2px solid transparent;
 }
 
-.no-bg {
-    background: none;
-}
-
-.no-line {
-    text-decoration: none;
-}
-
-.no-border {
-    border: none;
-}
-
 .main-link:hover,
 .main-link.active {
     background-image: linear-gradient(90deg, #B636FB 25%, #ffffff 100%);
@@ -151,14 +141,14 @@ sup.little {
     flex-direction: column;
 }
 
-a {
+.link {
     color: white;
     text-decoration: none;
     border-bottom: 2px solid transparent;
     transition: all 0.2s ease;
 }
 
-a:hover {
+.link:hover {
     border-bottom: 2px solid var(--link-border);
     background-image: linear-gradient(90deg, #B636FB 25%, #ffffff 100%);
     -webkit-background-clip: text;
@@ -234,16 +224,37 @@ table .best .oriented-text {
     width: 140px;
 }
 
+table .best-bg {
+    background-color: #49418a;
+}
+
+table td:nth-child(2):not(.best-bg),
+table td:nth-child(4):not(.best-bg),
+table td:nth-child(6):not(.best-bg),
+table td:nth-child(8):not(.best-bg) {
+    background-color: #252333;
+}
+
+body {
+    margin-top: 0;
+    padding-top: 0;
+}
+
 
 
 /* Nav */
 #nav {
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
-    width: 100%;
+    width: 99%;
     font-family: "Outfit", sans-serif;
+    position: fixed;
+    background-color: #1f1d2b3a;
+    backdrop-filter: blur(8px);
+    height: var(--nav-height);
 }
 
 #nav .main-links {
@@ -280,6 +291,7 @@ table .best .oriented-text {
 }
 
 #nav .user-links .nav-link {
+    width: 160px;
     padding: 13px 25px;
     border-radius: 20px;
     border: 1px solid white;
@@ -298,6 +310,10 @@ table .best .oriented-text {
 }
 
 
+#page-content {
+    padding-top: calc(var(--nav-height) + 20px);
+}
+
 /* Nav logo */
 #nav .nav-logocontainer {
     display: flex;
@@ -308,15 +324,46 @@ table .best .oriented-text {
 }
 
 #nav .nav-logocontainer #exaloadlogo {
-    max-width: 75px;
+    width: 100px;
+    height: 100px;
 }
 
 #nav .nav-logocontainer .nav-logo-text {
+    margin-left: 10px;
     height: 100%;
     background: linear-gradient(90deg, #FC2CFF 0%, #4646F5 50%, #25B7FB 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
+    font-weight: bold;
+    font-size: 48px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.no-bg {
+    background: none;
+}
+
+.no-line {
+    text-decoration: none;
+}
+
+.no-border,
+.no-border-hover {
+    border: none;
 }

@@ -122,16 +122,16 @@ def login_post():
     return redirect("/")
 
 
-@app.route('/signup')
-def signup():
+@app.route('/register')
+def register():
     if current_user.is_authenticated:
         return redirect("/profile")
     
-    return render_template('signup.html')
+    return render_template('register.html')
 
 
-@app.route('/signup', methods=['POST'])
-def signup_post():
+@app.route('/register', methods=['POST'])
+def register_post():
     email = request.form.get('email')
     name = request.form.get('name')
     password = request.form.get('password')
@@ -140,7 +140,7 @@ def signup_post():
     
     if user: # if a user is found, we want to redirect back to signup page so user can try again
         flash('Email address already exists')
-        return redirect("/signup")
+        return redirect("/register")
     
     if os.name == "nt":
         new_user = User(email=email, name=name, password=generate_password_hash(password, method='scrypt'))
