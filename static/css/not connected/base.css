@@ -12,8 +12,8 @@
     --main-button-color: #4646F5;
     --grey: #8d8d8d;
     --nav-height: 120px;
+    --default-font: "Outfit", "Trebuchet MS", cursive, sans-serif;
 }
-
 
 /* Scrollbar */
 ::-webkit-scrollbar {
@@ -130,7 +130,7 @@ sup.little {
     font-size: 12px;
     font-weight: 500;
     margin-top: 20px;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--default-font);
     margin-left: 10%;
 }
 
@@ -153,12 +153,13 @@ sup.little {
     background-image: linear-gradient(90deg, #B636FB 25%, #ffffff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    cursor: pointer;
 }
 
 /* Tables */
 table {
     color: white;
-    font-family: "Outfit", "Trebuchet MS", sans-serif;
+    font-family: var(--default-font);
 }
 
 table, th, tr, td {
@@ -250,7 +251,7 @@ body {
     justify-content: space-between;
     padding: 10px 0;
     width: 99%;
-    font-family: "Outfit", sans-serif;
+    font-family: var(--default-font);
     position: fixed;
     background-color: #1f1d2b3a;
     backdrop-filter: blur(8px);
@@ -320,7 +321,7 @@ body {
     align-items: center;
     margin-left: 40px;
     cursor: pointer;
-    font-family: "Poppins";
+    font-family: "Poppins", var(--default-font);
 }
 
 #nav .nav-logocontainer #exaloadlogo {
@@ -366,4 +367,61 @@ body {
 .no-border,
 .no-border-hover {
     border: none;
+}
+
+#notifications {
+    position: absolute;
+    top: calc(var(--nav-height) + 40px);
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.notification {
+    width: 300px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: var(--default-font);
+    padding: 20px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.notification:hover {
+    background-color: #c7c5c5;
+}
+
+.notification.is-danger {
+    background-color: #ff0000;
+}
+
+.notification.is-danger:hover {
+    background-color: #ff6767;
+}
+
+.notification.is-warning {
+    background-color: #f8f53d;
+}
+
+.notification.is-warning:hover {
+    background-color: #fffd8a;
+}
+
+.notification.is-ok {
+    background-color: #1bb148;
+}
+
+.notification.is-ok:hover {
+    background-color: #65df89;
+}
+
+.notification.is-message {
+    background-color: #df3eff;
+}
+
+.notification.is-message:hover {
+    background-color: #e76dff;
 }

@@ -1,0 +1,239 @@
+#login-form {
+    width: 100%;
+    max-width: 330px;
+    padding: 50px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    background-color: #8787f536;
+    color: white;
+    font-family: var(--default-font);
+}
+
+#login-form .title {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: flex;
+    align-self: center;
+}
+
+#login-form .title img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+#login-form .title h1 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+
+#login-form .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+#login-form .container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+}
+
+#login-form .field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form .field:not(.is-checkbox) {
+    align-items: flex-end;
+}
+
+#login-form .field.is-checkbox {
+    align-items: center;
+}
+
+#login-form .field>* {
+    transition: all 0.3s ease;
+    font-family: "Outfit";
+}
+
+#login-form .field input[type="text"],
+#login-form .field input[type="password"] {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 2px solid #4646F5;
+    outline: none;
+    background: transparent;
+}
+
+#login-form .field input[type="submit"] {
+    background: #03e9f4;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px 0;
+    font-size: 16px;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+}
+
+.has-sub-text {
+    margin-bottom: 5px !important;
+}
+
+#login-form .field:not(.is-checkbox) label:not(.checkbox) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+#login-form .field:not(.is-checkbox) input:focus~label:not(.checkbox),
+#login-form .field:not(.is-checkbox) input:valid~label:not(.checkbox),
+#login-form .field:not(.is-checkbox) input:not(:placeholder-shown)~label:not(.checkbox) {
+    top: -20px;
+    left: 0;
+    color: #9747FF;
+    font-size: 12px;
+}
+
+#login-form .field:not(.is-checkbox) input:focus,
+#login-form .field:not(.is-checkbox) input:valid,
+#login-form .field:not(.is-checkbox) input:not(:placeholder-shown) {
+    border-bottom: 2px solid #9747FF;
+}
+
+#login-form .field:not(.is-checkbox) input::placeholder {
+    color: transparent;
+    font-size: 10px;
+    text-align: center;
+}
+
+#login-form .field:not(.is-checkbox) input:focus::placeholder {
+    color: inherit;
+}
+
+#login-form .field:not(.is-checkbox) .sub-text {
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 10px;
+    width: fit-content;
+}
+
+#login-form .field .checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+}
+
+#login-form .field.is-checkbox {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#login-form .field.is-checkbox input[type="checkbox"] {
+    /* margin-right: 10px;
+    background-color: #4646f538;
+    border-radius: 6px;
+    height: 20px !important;
+    width: 20px !important; */
+
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+#login-form .field.is-checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #4646f538;
+    border-radius: 6px;
+    border: 2px solid #4646f5;
+    transition: all 0.3s ease;
+}
+
+#login-form .field.is-checkbox .checkbox:hover input~.checkmark {
+    background-color: #4646f5;
+}
+
+#login-form .field.is-checkbox .checkbox input:checked~.checkmark {
+    background-color: #4646f538;
+}
+
+#login-form .field.is-checkbox .checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+#login-form .field.is-checkbox .checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+#login-form .field.is-checkbox .checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+#login-form .container form .submit-button {
+    border-radius: 25px;
+    height: 60px;
+    width: 260px;
+    border: none;
+    cursor: pointer;
+    background-image: linear-gradient(to right, #4646F5, #9747FF);
+    color: white;
+    font-size: 24px;
+    align-self: center;
+    font-family: var(--default-font);
+}
+
+#login-form .container form .submit-button:hover {
+    background-image: linear-gradient(to right, #6868ff, #a764ff);
+}

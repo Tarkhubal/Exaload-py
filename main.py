@@ -100,7 +100,28 @@ def login():
     if current_user.is_authenticated:
         return redirect("/profile")
     
-    return render_template('login.html')
+    flash({
+        "msg": 'Veuillez vous connecter pour accéder à Exaload.',
+        "type": "danger"
+    })
+    
+    flash({
+        "msg": 'Veuillez vous connecter pour accéder à Exaload.',
+        "type": "warning"
+    })
+    
+    flash({
+        "msg": 'Veuillez vous connecter pour accéder à Exaload.',
+        "type": "message"
+    })
+    
+    flash({
+        "msg": 'Veuillez vous connecter pour accéder à Exaload.',
+        "type": "ok"
+    })
+
+    
+    return render_template('not-connected/login.html', stylesheet="not connected/base-login", title="Connexion")
 
 @app.route('/projets')
 def projets():
@@ -115,7 +136,10 @@ def login_post():
     
     user = User.query.filter_by(email=email).first()
     if not user or not check_password_hash(user.password, password):
-        flash('Please check your login details and try again.')
+        flash({
+            "msg": 'Please check your login details and try again.',
+            "type": "danger"
+        })
         return redirect("/login")
     
     login_user(user, remember=remember)
@@ -127,7 +151,7 @@ def register():
     if current_user.is_authenticated:
         return redirect("/profile")
     
-    return render_template('register.html')
+    return render_template('not-connected/register.html', stylesheet="register", title="Inscription")
 
 
 @app.route('/register', methods=['POST'])
@@ -139,7 +163,10 @@ def register_post():
     user = User.query.filter_by(email=email).first()
     
     if user: # if a user is found, we want to redirect back to signup page so user can try again
-        flash('Email address already exists')
+        flash({
+            "msg": 'Email address already exists',
+            "type": "danger"
+        })
         return redirect("/register")
     
     if os.name == "nt":
@@ -168,7 +195,7 @@ def register_post():
 @login_required
 def logout():
     logout_user()
-    print('Logout')
+    print(f'Logout user {current_user.name}')
     return redirect("/")
 
 

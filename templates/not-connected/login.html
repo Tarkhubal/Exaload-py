@@ -2,38 +2,32 @@
 
 {% block content %}
 
-<div class="landingpage">
-    <div class="column is-4 is-offset-4" style="color: white">
-        <h3 class="title">Login</h3>
-        <div class="box">
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <div class="notification is-danger">
-                    {{ messages[0] }}
-                </div>
-            {% endif %}
-            {% endwith %}
-            <form method="POST" action="/login">
-                <div class="field">
-                    <div class="control">
-                        <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="">
-                    </div>
-                </div>
-    
-                <div class="field">
-                    <div class="control">
-                        <input class="input is-large" type="password" name="password" placeholder="Your Password">
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="remember">
-                        Remember me
-                    </label>
-                </div>
-                <button class="button is-block is-info is-large is-fullwidth">Login</button>
-            </form>
+<section id="login-form">
+    <div class="container">
+        <div class="title">
+            <img src="/static/assets/logo.png" alt="logo">
+            <h1>Connexion</h1>
         </div>
+        <form method="POST" action="/login">
+            <div class="field">
+                <input type="text" name="" required placeholder="Entrez votre adresse mail ou nom d'utilisateur">
+                <label>Adresse mail ou nom d'utilisateur</label>
+            </div>
+            <div class="field">
+                <input type="password" class="has-sub-text" name="" required placeholder="Entrez votre mot de passe">
+                <label>Mot de passe</label>
+                <a class="sub-text link">Mot de passe oublié ?</a>
+            </div>
+            <div class="field is-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                    Rester connecté
+                </label>
+            </div>
+            <input class="submit-button" type="submit" value="Connexion">
+        </form>
     </div>
+</section>
 
 {% endblock %}

@@ -55,6 +55,18 @@
         </div>
     </section>
 
+
+    <section id="notifications">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="notification is-{{ message['type'] }}">
+                {{ message["msg"] }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </section>
     
     <section id="page-content">
         {% block content %}
