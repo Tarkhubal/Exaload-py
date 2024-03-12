@@ -194,8 +194,8 @@ def register_post():
 @app.route('/logout')
 @login_required
 def logout():
-    logout_user()
     print(f'Logout user {current_user.name}')
+    logout_user()
     return redirect("/")
 
 
