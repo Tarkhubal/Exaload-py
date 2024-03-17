@@ -31,18 +31,18 @@
         <div class="speed-login">
             <div class="main-logins">
                 <img src="/static/assets/logos/discord.svg" alt="discord logo" />
-                <img src="/static/assets/logos/epicgames.svg" alt="epicgames logo" />
+                <img src="/static/assets/logos/epicgames.svg" alt="epicgames logo" class="with-img-change" />
                 <img src="/static/assets/logos/google.svg" alt="google logo" />
                 <img src="/static/assets/logos/microsoft.svg" alt="microsoft logo" />
-                <img src="/static/assets/logos/steam.svg" alt="steam logo" />
+                <img src="/static/assets/logos/steam.svg" alt="steam logo" class="with-img-change" />
             </div>
             <p class="show-others link" onclick="document.querySelector('.other-logins').classList.toggle('show')">Autres moyens de connexion</p>
             <div class="other-logins">
                 <p class="row-flex">Personnes "normales"</p>
                 <img src="/static/assets/logos/tiktok.svg" alt="tiktok logo" />
-                <img src="/static/assets/logos/facebook.svg" alt="facebook logo" />
+                <img src="/static/assets/logos/facebook.svg" alt="facebook logo" class="with-img-change" />
                 <img src="/static/assets/logos/meta.svg" alt="meta logo" />
-                <img src="/static/assets/logos/twitch.svg" alt="twitch logo" />
+                <img src="/static/assets/logos/twitch.svg" alt="twitch logo" class="with-img-change" />
                 <img src="/static/assets/logos/twitter.svg" alt="twitter logo" class="white-filter" />
                 <img src="/static/assets/logos/instagram.svg" alt="instagram logo" />
                 <img src="/static/assets/logos/samsung.svg" alt="samsung logo" />
@@ -86,17 +86,19 @@
 
 {% block scripts %}
 <script>
-    imgs = document.querySelectorAll(".main-logins img");
+    imgs = document.querySelectorAll(".main-logins img.with-img-change");
     imgs.forEach(img => {
         img.addEventListener("mouseover", () => changeImageColor(img));
         img.addEventListener("mouseout", () => resetImageColor(img));
     });
 
-    imgs = document.querySelectorAll(".other-logins img");
+    imgs = document.querySelectorAll(".other-logins img.with-img-change");
     imgs.forEach(img => {
         img.addEventListener("mouseover", () => changeImageColor(img));
         img.addEventListener("mouseout", () => resetImageColor(img));
     });
+
+
     // this function adds a "-colored" to the src of the image when the mouse is over it
     function changeImageColor(e) {
         e.src = e.src.includes("-colored") ? e.src.replace("-colored", "") : e.src.replace(".svg", "-colored.svg");
@@ -106,8 +108,6 @@
         setTimeout(() => {
             e.src = e.src.includes("-colored") ? e.src.replace("-colored", "") : e.src.replace("-colored.svg", ".svg");
         }, 100);
-
-        
     }
 
 </script>
