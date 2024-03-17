@@ -26,8 +26,89 @@
                 </label>
             </div>
             <input class="submit-button" type="submit" value="Connexion">
+            <a href="/register" class="link">Pas encore de compte ? Inscrivez-vous</a>
         </form>
+        <div class="speed-login">
+            <div class="main-logins">
+                <img src="/static/assets/logos/discord.svg" alt="discord logo" />
+                <img src="/static/assets/logos/epicgames.svg" alt="epicgames logo" />
+                <img src="/static/assets/logos/google.svg" alt="google logo" />
+                <img src="/static/assets/logos/microsoft.svg" alt="microsoft logo" />
+                <img src="/static/assets/logos/steam.svg" alt="steam logo" />
+            </div>
+            <p class="show-others link" onclick="document.querySelector('.other-logins').classList.toggle('show')">Autres moyens de connexion</p>
+            <div class="other-logins">
+                <p class="row-flex">Personnes "normales"</p>
+                <img src="/static/assets/logos/tiktok.svg" alt="tiktok logo" />
+                <img src="/static/assets/logos/facebook.svg" alt="facebook logo" />
+                <img src="/static/assets/logos/meta.svg" alt="meta logo" />
+                <img src="/static/assets/logos/twitch.svg" alt="twitch logo" />
+                <img src="/static/assets/logos/twitter.svg" alt="twitter logo" class="white-filter" />
+                <img src="/static/assets/logos/instagram.svg" alt="instagram logo" />
+                <img src="/static/assets/logos/samsung.svg" alt="samsung logo" />
+                <img src="/static/assets/logos/pinterest.svg" alt="pinterest logo" />
+                <img src="/static/assets/logos/deezer.svg" alt="deezer logo" />
+                <img src="/static/assets/logos/spotify.svg" alt="spotify logo" />
+                <img src="/static/assets/logos/paypal.svg" alt="paypal logo" />
+                <img src="/static/assets/logos/slack.svg" alt="slack logo" />
+                <img src="/static/assets/logos/dropbox.svg" alt="dropbox logo" />
+                <img src="/static/assets/logos/fiverr.svg" alt="fiverr logo" />
+                <img src="/static/assets/logos/skype.svg" alt="skype logo" />
+                <img src="/static/assets/logos/telegram.svg" alt="telegram logo" />
+                <img src="/static/assets/logos/linkedin.svg" alt="linkedin logo" />
+                <img src="/static/assets/logos/vimeo.svg" alt="vimeo logo" />
+                <img src="/static/assets/logos/amazon.svg" alt="amazon logo" />
+
+                <p class="row-flex">Gamers</p>
+                <img src="/static/assets/logos/xbox.svg" alt="xbox logo" />
+                <img src="/static/assets/logos/playstation.svg" alt="playstation logo" />
+                <img src="/static/assets/logos/reddit.svg" alt="reddit logo" />
+                <img src="/static/assets/logos/gog.svg" alt="gog logo" />
+                <img src="/static/assets/logos/ubisoft-nobg.svg" alt="ubisoft logo" />
+                <img src="/static/assets/logos/battledotnet.svg" alt="battledotnet logo" />
+                <img src="/static/assets/logos/ea.svg" alt="ea logo" />
+                <!-- <img src="/static/assets/logos/gamecube.svg" alt="gamecube logo" /> Bro seriously ????? -->
+                <!-- <img src="/static/assets/logos/nintendo.svg" alt="nintendo logo" /> is-it possible ? -->
+                <!--  <img src="/static/assets/logos/valorant.svg" alt="valorant logo" /> is-it possible ? -->
+
+                <p class="row-flex">Geeks, nerds et devs</p>
+                <img src="/static/assets/logos/github.svg" alt="github logo" />
+                <img src="/static/assets/logos/gitlab.svg" alt="gitlab logo" />
+                <img src="/static/assets/logos/stackoverflow.svg" alt="stackoverflow logo" />
+
+            </div>
+        </div>
     </div>
 </section>
 
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    imgs = document.querySelectorAll(".main-logins img");
+    imgs.forEach(img => {
+        img.addEventListener("mouseover", () => changeImageColor(img));
+        img.addEventListener("mouseout", () => resetImageColor(img));
+    });
+
+    imgs = document.querySelectorAll(".other-logins img");
+    imgs.forEach(img => {
+        img.addEventListener("mouseover", () => changeImageColor(img));
+        img.addEventListener("mouseout", () => resetImageColor(img));
+    });
+    // this function adds a "-colored" to the src of the image when the mouse is over it
+    function changeImageColor(e) {
+        e.src = e.src.includes("-colored") ? e.src.replace("-colored", "") : e.src.replace(".svg", "-colored.svg");
+    }
+    // and this one remove the "-colored" when the mouse is out
+    function resetImageColor(e) {
+        setTimeout(() => {
+            e.src = e.src.includes("-colored") ? e.src.replace("-colored", "") : e.src.replace("-colored.svg", ".svg");
+        }, 100);
+
+        
+    }
+
+</script>
 {% endblock %}
