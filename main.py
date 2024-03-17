@@ -130,11 +130,15 @@ def projets():
 
 @app.route('/login', methods=['POST'])
 def login_post():
-    email = request.form.get('email')
     password = request.form.get('password')
     remember = True if request.form.get('remember') else False
+    username = request.form.get('username')
+    if "@" in username and "." in username:
+        user = User.query.filter_by(email=username).first()
+    else:
+        user = User.query.filter_by(name=username).first()
+        
     
-    user = User.query.filter_by(email=email).first()
     if not user or not check_password_hash(user.password, password):
         flash({
             "msg": 'Please check your login details and try again.',
@@ -159,6 +163,21 @@ def register_post():
     email = request.form.get('email')
     name = request.form.get('name')
     password = request.form.get('password')
+    
+    if "@" in name or "." in name:
+        flash({
+            "msg": 'Your username can\'t have an "@" or a "."',
+            "type": "danger"
+        })
+        return redirect("/register")
+    
+    # if len(password) < 12:
+    #     flash({
+    #         "msg": f'Your password must have at least 12 characters (actual : {len(password)})',
+    #         "type": "danger"
+    #     })
+    #     return redirect("/register")
+    
 
     user = User.query.filter_by(email=email).first()
     
