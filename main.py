@@ -473,6 +473,11 @@ def _api_v1_movies_search():
     
     return correct
 
+@app.route("/api/v1/account/email", methods=['GET'])
+@login_required
+def _api_v1_account_email():
+    return {"success": True, "email": current_user.email} 
+
 @app.route("/api/v1/movies/edit/title", methods=['POST'])
 def _api_v1_movies_edit_title():
     movie_id = request.form.get("movie_id")
