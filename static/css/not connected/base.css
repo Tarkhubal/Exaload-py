@@ -387,9 +387,8 @@ table td:nth-child(8):not(.best-bg) {
 
 .notification {
     width: 300px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    color: black;
+    border-radius: 25px;
+    color: white;
     font-size: 15px;
     font-weight: 500;
     font-family: var(--default-font);
@@ -397,40 +396,19 @@ table td:nth-child(8):not(.best-bg) {
     transition: all 0.4s ease;
     cursor: pointer;
     margin-bottom: 15px;
+    backdrop-filter: blur(10px);
+    background-color: #fc2cff52;
+}
+
+.notification h3 {
+    font-size: 15pt;
+    margin: 0 0 10px 0;
+    background-image: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    max-width: fit-content;
 }
 
 .notification:hover {
-    background-color: #c7c5c5;
-}
-
-.notification.is-danger {
-    background-color: #ff0000;
-}
-
-.notification.is-danger:hover {
-    background-color: #ff6767;
-}
-
-.notification.is-warning {
-    background-color: #f8f53d;
-}
-
-.notification.is-warning:hover {
-    background-color: #fffd8a;
-}
-
-.notification.is-ok {
-    background-color: #1bb148;
-}
-
-.notification.is-ok:hover {
-    background-color: #65df89;
-}
-
-.notification.is-message {
-    background-color: #df3eff;
-}
-
-.notification.is-message:hover {
-    background-color: #e76dff;
+    background-color: #fb2cff7a;
 }

@@ -60,7 +60,8 @@
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-            <div class="notification is-{{ message['type'] }}">
+            <div class="notification {{ message['type'] }}">
+                <h3>{{ message['title'] }}</h3>
                 {{ message["msg"] }}
             </div>
             {% endfor %}

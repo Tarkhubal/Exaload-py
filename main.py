@@ -102,21 +102,25 @@ def login():
     
     flash({
         "msg": 'Veuillez vous connecter pour accéder à Exaload.',
+        "title": "Compte requis",
         "type": "danger"
     })
     
     flash({
         "msg": 'Veuillez vous connecter pour accéder à Exaload.',
+        "title": "Compte requis",
         "type": "warning"
     })
     
     flash({
         "msg": 'Veuillez vous connecter pour accéder à Exaload.',
+        "title": "Compte requis",
         "type": "message"
     })
     
     flash({
         "msg": 'Veuillez vous connecter pour accéder à Exaload.',
+        "title": "Compte requis",
         "type": "ok"
     })
 
@@ -142,6 +146,7 @@ def login_post():
     if not user or not check_password_hash(user.password, password):
         flash({
             "msg": 'Please check your login details and try again.',
+            "title": "Identifiants invalides",
             "type": "danger"
         })
         return redirect("/login")
@@ -167,6 +172,7 @@ def register_post():
     if "@" in name or "." in name:
         flash({
             "msg": 'Your username can\'t have an "@" or a "."',
+            "title": "Identifiants invalides",
             "type": "danger"
         })
         return redirect("/register")
@@ -184,6 +190,7 @@ def register_post():
     if user: # if a user is found, we want to redirect back to signup page so user can try again
         flash({
             "msg": 'Email address already exists',
+            "title": "Identifiants invalides",
             "type": "danger"
         })
         return redirect("/register")
