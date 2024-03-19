@@ -100,31 +100,6 @@ def login():
     if current_user.is_authenticated:
         return redirect("/profile")
     
-    flash({
-        "msg": 'Veuillez vous connecter pour accéder à Exaload.',
-        "title": "Compte requis",
-        "type": "danger"
-    })
-    
-    flash({
-        "msg": 'Veuillez vous connecter pour accéder à Exaload.',
-        "title": "Compte requis",
-        "type": "warning"
-    })
-    
-    flash({
-        "msg": 'Veuillez vous connecter pour accéder à Exaload.',
-        "title": "Compte requis",
-        "type": "message"
-    })
-    
-    flash({
-        "msg": 'Veuillez vous connecter pour accéder à Exaload.',
-        "title": "Compte requis",
-        "type": "ok"
-    })
-
-    
     return render_template('not-connected/login.html', stylesheet="not connected/base-login", title="Connexion")
 
 @app.route('/projets')
