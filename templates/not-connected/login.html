@@ -1,5 +1,19 @@
 {% extends "not-connected/base.html" %}
 
+{% block prefetch %}
+    <prefetch href="/static/assets/logos/epicgames-colored.png">
+    <prefetch href="/static/assets/logos/discord-colored.svg">
+    <prefetch href="/static/assets/logos/github-colored.svg">
+    <prefetch href="/static/assets/logos/google-colored.svg">
+    <prefetch href="/static/assets/logos/reddit-colored.png">
+    <prefetch href="/static/assets/logos/steam-colored.svg">
+    <prefetch href="/static/assets/logos/telegram-colored.png">
+    <prefetch href="/static/assets/logos/twitch-colored.svg">
+    <prefetch href="/static/assets/logos/ubisoft-nobg.svg">
+{% endblock %}
+
+
+
 {% block content %}
 
 <section id="login-form">
@@ -100,25 +114,22 @@
 
 
     function changeImage(e) {
-            if (e.classList.contains("hover-is-png") && !e.src.includes("-colored")) {
-                newext = ".png";
-                ext = ".svg";
-            } else if (e.classList.contains("hover-is-png") && e.src.includes("-colored")) {
-                newext = ".svg";
-                ext = ".png";
-            } else {
-                newext = e.src.includes(".svg") ? ".svg" : ".png";
-                ext = e.src.includes(".svg") ? ".svg" : ".png";
-            }
+        if (e.classList.contains("hover-is-png") && !e.src.includes("-colored")) {
+            newext = ".png";
+            ext = ".svg";
+        } else if (e.classList.contains("hover-is-png") && e.src.includes("-colored")) {
+            newext = ".svg";
+            ext = ".png";
+        } else {
+            newext = e.src.includes(".svg") ? ".svg" : ".png";
+            ext = e.src.includes(".svg") ? ".svg" : ".png";
+        }
 
-            if (e.src.includes("-colored")) {
-                setTimeout(() => {
-                    e.src = e.src.replace("-colored" + ext, newext);
-                }, 100);
-            } else {
-                e.src = e.src.replace(ext, "-colored" + newext);
-            }
-
+        if (e.src.includes("-colored")) {
+            e.src = e.src.replace("-colored" + ext, newext);
+        } else {
+            e.src = e.src.replace(ext, "-colored" + newext);
+        }
     }
 
 
