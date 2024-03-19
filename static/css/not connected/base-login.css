@@ -84,12 +84,23 @@
     border-bottom: 2px solid #4646F5;
     outline: none;
     background: transparent !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-input:-internal-autofill-selected {
-    background-image: none !important;
-    background-color: transparent !important;
-    color: white !important;
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #442758 inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 #login-form .field input[type="submit"] {
