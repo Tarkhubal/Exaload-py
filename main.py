@@ -84,7 +84,6 @@ def settings():
 def index():
     db.create_all()
 
-    # Si l'utilisateur est connecté, afficher le template main.html sinon afficher le template index.html
     if current_user.is_authenticated:
         return render_template('connected/index.html', title="Accueil", scroll_bar_gradient=get_scrollbar_gradient(current_user.background))
     
@@ -120,7 +119,7 @@ def login_post():
     
     if not user or not check_password_hash(user.password, password):
         flash({
-            "msg": 'Please check your login details and try again.',
+            "msg": 'Vérifiez vos identifiants et réessayez.',
             "title": "Identifiants invalides",
             "type": "danger"
         })
@@ -135,7 +134,7 @@ def register():
     if current_user.is_authenticated:
         return redirect("/profile")
     
-    return render_template('not-connected/register.html', stylesheet="register", title="Inscription")
+    return render_template('not-connected/register.html', stylesheet="not connected/base-login", title="Inscription")
 
 
 @app.route('/register', methods=['POST'])
@@ -144,9 +143,9 @@ def register_post():
     name = request.form.get('name')
     password = request.form.get('password')
     
-    if "@" in name or "." in name:
+    if "@" in name:
         flash({
-            "msg": 'Your username can\'t have an "@" or a "."',
+            "msg": 'Votre nom d\'utilisateur ne peut pas contenir de "@"',
             "title": "Identifiants invalides",
             "type": "danger"
         })
@@ -164,7 +163,7 @@ def register_post():
     
     if user: # if a user is found, we want to redirect back to signup page so user can try again
         flash({
-            "msg": 'Email address already exists',
+            "msg": 'Un compte avec cet email existe déjà. Essayez de vous connecter et/ou de réinitialiser votre mot de passe si vous l\'avez oublié',
             "title": "Identifiants invalides",
             "type": "danger"
         })
@@ -185,10 +184,8 @@ def register_post():
     db.session.add(new_user)
     db.session.commit()
     
-    # Connect the user
+    # connect the user
     login_user(new_user, remember=True)
-    
-    # code to validate and add user to database goes here
     return redirect("/")
 
 

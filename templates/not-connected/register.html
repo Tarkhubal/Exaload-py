@@ -1,30 +1,31 @@
-{% extends "not-connected/base.html" %}
+{% extends "not-connected/base-login.html" %}
 
-{% block content %}
-<div class="column is-4 is-offset-4">
-    <h3 class="title">Sign Up</h3>
-    <div class="box">
-        <form method="POST" action="/register">
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
-                </div>
-            </div>
-
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="text" name="name" placeholder="Name" autofocus="">
-                </div>
-            </div>
-
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="Password">
-                </div>
-            </div>
-
-            <button class="button is-block is-info is-large is-fullwidth">Sign Up</button>
-        </form>
+{% block form %}
+    <div class="title">
+        <img src="/static/assets/logo.png" alt="logo">
+        <h1>Inscription</h1>
     </div>
-</div>
+    <form method="POST" action="/register">
+        <div class="field">
+            <input type="text" name="email" required placeholder="Entrez votre adresse mail">
+            <label>Adresse mail</label>
+        </div>
+        <div class="field">
+            <input type="text" name="name" required placeholder="Entrez votre nom d'utilisateur">
+            <label>Nom d'utilisateur</label>
+        </div>
+        <div class="field">
+            <input type="password" class="has-sub-text" name="password" required placeholder="Entrez votre mot de passe">
+            <label>Mot de passe</label>
+        </div>
+        <div class="field is-checkbox">
+            <label class="checkbox">
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+                Rester connecté
+            </label>
+        </div>
+        <input class="submit-button" type="submit" value="Connexion">
+        <a href="/register" class="link">Pas encore de compte ? Inscrivez-vous</a>
+    </form>
 {% endblock %}
